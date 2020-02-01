@@ -1,0 +1,49 @@
+@media (min-width: 1400px) and (max-width: 1980px){
+    .home {
+        height: 80vh;
+        background-size: cover;
+        background-position: 15% 75%;
+    }
+    .home:hover {
+        height: 80vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: left;
+    }
+    .about {
+        background-repeat: repeat-x;
+        background-size: cover;
+        background-position: 10% 75%;
+      }
+    .about:hover {
+        height: 80vh;
+        background-repeat: repeat-x;
+        background-size: cover;
+    }
+    .contact {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 1% 75%;
+    }
+    .contact:hover {
+        height: 80vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .slider-article{
+        padding-left:5%;
+    }
+    .description-article{
+        font-size: 1rem;
+        color: #707070;
+    }
+    .bg-article-bottom-desktop{
+        background-image: url('../img/bg-article.jpg');
+        background-repeat: repeat;
+        margin-top:-9%;
+        height: 170px;
+      }
+    .slider-container{
+        padding-left:0px;
+    }
+}

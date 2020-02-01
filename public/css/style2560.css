@@ -1,0 +1,90 @@
+@media (min-width: 2000px) and (max-width: 2880px){
+    .slider-article{
+        padding-left:4%;
+    }
+    .home {
+        height: 40vh;
+        background-size: cover;
+        background-position: 25% 75%;
+      }
+    .home:hover {
+        height: 40vh;
+        background-repeat: repeat-x;
+        background-size: cover;
+        background-position: left;
+    }
+    .about {
+        background-repeat: repeat-x;
+        background-size: cover;
+        background-position: 10% 75%;
+      }
+    .about:hover {
+        height: 40vh;
+        background-repeat: repeat-x;
+        background-size: cover;
+    }
+    .contact {
+        background-repeat: repeat-x;
+        background-size: cover;
+        background-position: 1% 75%;
+    }
+    .contact:hover {
+        height: 40vh;
+        background-repeat: repeat-x;
+        background-size: cover;
+    }
+    .flex-about {
+        opacity: 0;
+        display: none;
+        background-color: rgba(255, 255, 255, 0.9);
+        position: relative;
+        width: 35%;
+        padding: 20px 100px 20px 20px;
+        top: 0;
+        left:-6%;
+        border: 1px solid #f1f1f1;
+        border-radius: 10px;
+        line-height: 1.3;
+        margin: auto;
+        text-align: left;
+        transform: rotate(0deg);
+        -webkit-transition: all 500ms ease;
+        -moz-transition: all 500ms ease;
+        -ms-transition: all 500ms ease;
+        -o-transition: all 500ms ease;
+        transition: all 500ms ease;
+      }
+    .flex-about-btn{
+        position: relative;
+        width: 100%;
+        font-size: 2vw;
+        padding: 5%;
+        top: 60%;
+        line-height: 1.3;
+        margin: auto;
+        text-align: center;
+      }
+      .flex-about-btn a{
+        border: solid 1px #ff6820;
+        border-radius: 7px;
+      }
+    .description-article{
+        font-size: 1.2rem;
+        color: #707070;
+    }
+    .bg-article-home{
+        background-image: url('../img/bg-article.jpg');
+        background-repeat: repeat;
+        height: 44vh;
+        margin-top:-25%;
+      }
+    .bg-article-bottom-desktop{
+        background-image: url('../img/bg-article.jpg');
+        background-repeat: repeat;
+        margin-top:-7%;
+        height: 240px;
+      }
+    .slider-container{
+        padding-left: 0;
+    }
+}

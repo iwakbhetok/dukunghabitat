@@ -1,0 +1,144 @@
+@media (min-width: 310px) and (max-width: 360px){ 
+    .element-home-modal-mobile{
+      background-color: #f3f3f3;
+      border-radius: 5px;
+      position: absolute;
+      top: 194px;
+      left: 60px;
+      z-index: -1;
+      height: 48vh;
+      width: 81vw;
+    }
+    .element-sanitazion-modal-mobile{
+      background-color: #f3f3f3;
+      border-radius: 5px;
+      position: absolute;
+      top: 175px;
+      left: 60px;
+      z-index: -1;
+      height: 48vh;
+      width: 81vw;
+    }
+    .element-water-modal-mobile{
+      background-color: #f3f3f3;
+      border-radius: 5px;
+      position: absolute;
+      top: 175px;
+      left: 60px;
+      z-index: -1;
+      height: 41vh;
+      width: 81vw;
+    }
+    .detail-donation p{
+      font-size: 0.9rem;
+    }
+    .link-donation-help a{
+      margin-top: 55px;
+    }
+    .link-read-detail{
+      padding-top: 30px;
+    }
+    .radio-toolbar-mobile label {
+        display: inline-block;
+        padding: 15px 5px;
+        font-family: sans-serif, 'NeueFont';
+        font-size: .8rem;
+        border: 2px solid #00afd7;
+        border-radius: 10px;
+        color:#00afd7;
+        margin-right:5px;
+        background-color: #fff;
+      }
+      .banner-detail-mobile li{
+        padding-left: 40px;
+        margin-left:-12px;
+        margin-right:-12px;
+      }
+      #autocomplete-mobile{
+        display: inline-flex;
+        margin-top:5px;
+      }
+      .closeSearchMobile{
+        margin-top: 14px;
+      }
+      .flex-title {
+        line-break: normal;
+        padding-left:5vw;
+        text-align: left;
+        font-size: 2vw;
+      }
+      .flex-title span{
+        text-align: left;
+        font-size: 3.5vw;
+        line-height: 1;
+      }
+      .form-newsletter-mobile input{
+        border:none;
+        background-color: transparent;
+        font-size: 0.8rem;
+        padding-left: 10px;
+        padding-right: 10px;
+        float: left;
+        width: 54vw;
+        font-size: 0.6rem;
+      }
+      .customNominalMobile{
+        padding: 15px 5px;
+        height: 58px;
+        font-size: .8rem;
+      }
+      .customNominalMobile::placeholder{
+        font-size: 1rem;
+      }
+      .inputNameMobile{
+        height: 44px;
+        padding:12px 20px;
+        border: 2px solid #00afd7;
+        border-radius: 10px;
+      }
+      .inputNameMobile:focus{
+        background-color: #00afd7;
+        border-color: #00afd7;
+        color: #f9f9f9;
+      }
+      .inputNameMobile:focus::placeholder{
+        color: #f9f9f9;
+      }
+      .inputNameMobile::placeholder{
+        color:#c1bfbf;
+      }
+      .inputEmailMobile{
+        height: 44px;
+        padding:12px 20px;
+        border: 2px solid #00afd7;
+        border-radius: 10px;
+      }
+      .inputEmailMobile:focus{
+        background-color: #00afd7;
+        border-color: #00afd7;
+        color: #f9f9f9;
+      }
+      .inputEmailMobile:focus::placeholder{
+        color: #f9f9f9;
+      }
+      .inputEmailMobile::placeholder{
+        color:#c1bfbf;
+      }
+      .bg-nominal-mobile span{
+        font-size: .8rem;
+      }
+
+      .slider-mobile-detail-article>li{
+        padding-left: 10px;
+      }
+      .label-donation{
+        color:#00afd7;
+        font-family: 'NeueFont', sans-serif;
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 1.5rem;
+      }
+      .share-article-mobile{
+        padding-bottom:10px;
+      }
+}
