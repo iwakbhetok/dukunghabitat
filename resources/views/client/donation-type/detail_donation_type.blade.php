@@ -1,6 +1,14 @@
 
 @extends('client.layouts.layout')
 
+@section('title',  'Membangun ' . $label)
+@push('meta')
+
+<meta property="og:title" content="Membangun {{ $label }}">
+<meta property="og:description" content="Membangun {{ $label }}">
+
+@endpush
+
 @section('content')
 
 <!-- slide -->

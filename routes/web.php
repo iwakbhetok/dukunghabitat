@@ -1,14 +1,28 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Donation;
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
     Route::get('/sitemap','SitemapController@generate');
     // Your overwrites here
-    //    Route::get('/dashboard', '\App\Http\Controllers\Habitat\VoyagerController@index')->name('voyager.dashboard');
+        Route::get('/', function(){
+            if(Auth::check()){
+                $date = \Carbon\Carbon::now();
+                $grandTotal = Donation::where(['status' => 'success'])->sum('amount');
+                $labelThisMonth = $date->format('F d, Y');
+                $labelLastMonth = $date->subMonth()->format('F Y');
+                $totalThisMonth = Donation::where(['status' => 'success'])->whereMonth('created_at', $date->format('m'))->sum('amount');
+                $totalLastMonth = Donation::where(['status' => 'success'])->whereMonth('created_at', $date->subMonth()->format('m'))->sum('amount');
+                return view('vendor.voyager.index', compact('grandTotal','labelLastMonth', 'labelThisMonth', 'totalLastMonth', 'totalThisMonth'));
+            }else{
+                return redirect('admin/login');
+            }
+        })->name('voyager.dashboard');
        Route::get('/export/donations/all', '\App\Http\Controllers\Habitat\DonationsController@exportAll')->name('donations.export.all');
-       Route::get('/export/donations/month', '\App\Http\Controllers\Habitat\DonationsController@exportByMonth')->name('donations.export.month');
+       Route::post('/export/donations/month', '\App\Http\Controllers\Habitat\DonationsController@exportByMonth')->name('donations.export.month');
 });
 
 Route::group(['prefix' => 'payment'], function () {
@@ -39,3 +53,4 @@ Route::get('/donasi/{type}', 'DonationController@index')->name('form.donasi');
 
 
 Route::get('/{slug}', 'ArticleController@index')->name('article.detail');
+Route::get('/blog/{slug}', 'ArticleController@index')->name('article.detail');

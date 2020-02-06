@@ -1,6 +1,8 @@
 
 @extends('client.layouts.layout')
 
+@section('title',  'Terimakasih')
+
 @section('content')
 
 <section>

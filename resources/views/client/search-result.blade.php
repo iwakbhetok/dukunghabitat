@@ -1,5 +1,7 @@
 @extends('client.layouts.layout')
 
+@section('title',  'Hasil Pencarian')
+
 @section('content')
 
 <!-- search result -->

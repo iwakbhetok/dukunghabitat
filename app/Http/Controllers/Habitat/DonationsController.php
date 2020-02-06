@@ -914,8 +914,13 @@ class DonationsController extends VoyagerBaseController
     }
 
     public function exportByMonth(Request $request){
-        $month = 02; // $request->month();
-        $year = 2020; //$request->year();
-        return (new DonationExport)->forPeriod($month, $year)->download('donations-'. $month .'-' . time() . '.xlsx');
+        if($request->period != null){
+            $objPeriod = explode('-',$request->period);
+            $month = $objPeriod[0]; // $request->month();
+            $year = $objPeriod[1]; //$request->year();
+            return (new DonationExport)->forPeriod($month, $year)->download('donations-'. $month .'-' . time() . '.xlsx');
+        }
+        return redirect('admin/donations');
+        
     }
 }

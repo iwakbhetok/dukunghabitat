@@ -1,6 +1,20 @@
 
 @extends('client.layouts.layout')
 
+@section('title',  $article->title)
+@push('meta')
+
+<meta property="og:title" content="{{ $article->title }}">
+<meta property="og:description" content="{{ $article->excerpt }}">
+<meta property="og:image" content="{{ Voyager::image( $article->image ) }}">
+<meta property="og:url" content="{{ url()->current() }}">
+
+<meta name="twitter:title" content="{{ $article->title }}">
+<meta name="twitter:description" content="{{ $article->excerpt }}">
+<meta name="twitter:image" content="{{ Voyager::image( $article->image ) }}">
+<meta name="twitter:card" content="summary">
+@endpush
+
 @section('content')
 
 <section class="slider-building uk-visible@s">
@@ -54,7 +68,6 @@
                         </div>
                         <div class="uk-card contentArticle uk-hidden@m">
                             <h1 class="uk-text-left">{{ $article->title }}</h1>
-                            {!! $article->excerpt !!}
                             <div class="uk-grid-collapse uk-child-width-expand@s uk-text-center share-article-mobile uk-hidden@m" uk-grid>
                                 <div>
                                     <div class="uk-card uk-card-body share-article-mobile-label">Bagi Artikel ini</div>
@@ -203,7 +216,7 @@
                                     <img data-src="{{ Voyager::image( $post->image ) }}" alt="" class="lazy" style="border-radius:5px 5px 0 0;">
                                 </div>
                                 <div class="uk-card-body">
-                                    <h3 class="uk-card-title other-articles uk-text-center uk-margin-remove">{{ $post->title }}</h3>
+                                    <h3 class="uk-card-title other-articles uk-text-center uk-margin-remove">{{ \Illuminate\Support\Str::limit($post->title, 40, $end=' ...') }} </h3>
                                     <div class="uk-grid-collapse uk-child-width-expand@s" uk-grid>
                                         <div>
                                             <div class="uk-text-center">
@@ -254,7 +267,7 @@
                                             <img data-src="{{ Voyager::image( $post->image ) }}" alt="" class="lazy">
                                         </div>
                                         <div class="article-content-mobile">
-                                            <h3 class="uk-card-title title-article-mobile uk-margin-remove-top">{{ $post->title }}</h3>
+                                            <h3 class="uk-card-title title-article-mobile uk-margin-remove-top">{{ \Illuminate\Support\Str::limit($post->title, 40, $end=' ...') }}</h3>
                                         </div>
                                     </div>
                                 </a>

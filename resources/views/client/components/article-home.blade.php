@@ -19,7 +19,7 @@
                                     <div class="uk-card uk-card-default article-item">
                                         <div class="uk-card-media-top">
                                             <a href="{{ $post->slug }}">
-                                                <img data-src="{{ Voyager::image( $post->image ) }}" alt="" class="lazy">
+                                                <img data-src="{{ Voyager::image( voyager_image($post->image, 'medium') ) }}" alt="" class="lazy">
                                             </a>
                                         </div>
                                         <div class="uk-card-body article-content">
@@ -27,7 +27,7 @@
                                             <div class="uk-width-expand@m">
                                                 <div class="uk-card">
                                                     <a href="{{ $post->slug }}">
-                                                            <h3 class="uk-card-title title-article uk-margin-remove-top">{{ $post->title }}</h3>
+                                                            <h3 class="uk-card-title title-article uk-margin-remove-top"> {{ \Illuminate\Support\Str::limit($post->title, 42, $end='...') }}</h3>
                                                         </a>
                                                 </div>
                                             </div>
@@ -99,7 +99,7 @@
                                                     </div>
                                                 </div> -->
                                             
-                                            <p class="description-article uk-text-justify">{{ $post->excerpt }}</p>
+                                            <p class="description-article uk-text-justify">{{ \Illuminate\Support\Str::limit($post->excerpt, 90, $end=' ...') }}</p>
                                             <div class="uk-grid-collapse uk-child-width-expand@s" uk-grid>
                                                 <div>
                                                     <div class=""></div>
@@ -138,10 +138,10 @@
                                         <a href="{{ $post->slug }}">
                                             <div class="uk-card article-item">
                                                 <div class="uk-card-media-top">
-                                                    <img data-src="{{ Voyager::image( $post->image ) }}" alt="" class="lazy">
+                                                    <img data-src="{{ Voyager::image( voyager_image($post->image, 'small') ) }}" alt="" class="lazy">
                                                 </div>
                                                 <div class="article-content-mobile">
-                                                    <h3 class="uk-card-title title-article-mobile uk-margin-remove-top">{{ $post->title }}</h3>
+                                                    <h3 class="uk-card-title title-article-mobile uk-margin-remove-top">{{ \Illuminate\Support\Str::limit($post->title, 42, $end='...') }}</h3>
                                                 </div>
                                             </div>
                                         </a>

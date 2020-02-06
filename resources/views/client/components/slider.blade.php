@@ -6,49 +6,57 @@
             <span>Loading...</span>
         </div>
         <div class="flex-container uk-visible@m">
-            <div class="flex-slide home" style="background: url({{ asset('img/bangun_rumah.jpg') }});background-repeat:no-repeat;background-size:cover;">
-                <div class="flex-title ">Membangun <br>
-                    <span>Rumah</span></div>
+            @foreach($sliders as $slider)
+            <div class="flex-slide home" style="background: url({{ Voyager::image( $slider->background_image ) }});background-repeat:no-repeat;background-size:cover;">
+                <div class="flex-title ">{{ $slider->title }} <br>
+                    <span>{{ $slider->sub_title }}</span></div>
                 <div class="flex-about flex-about-home">
-                    <h2>Tiada Tempat Sebaik Rumah</h2>
-                    <p>Rumah merupakan tempat bernaung dan tempat untuk pulang. Memiliki rumah adalah hak dasar, tetapi tak semua orang memiliki kesempatan tinggal di rumah yang layak dan nyaman. Bergeraklah bersama kami untuk menciptakan rumah yang layak untuk mereka.</p>
+                    <h2>{{ $slider->title_detail_information }}</h2>
+                    <p>{{ $slider->description_detail_information }}</p>
                     <div class="">
                         <div class="uk-flex slide-home-items uk-width-1-1">
                             <div class="uk-card slide-home-item uk-text-center">
-                                <img src="{{ asset('img/home/home-reason-1.png') }}" alt="">
+                                <img src="{{ Voyager::image( $slider->icon_image_1_detail_information ) }}" alt="">
                                 <div class="uk-overlay-small"></div>
                                 <br>
-                                <span class="uk-text-bold">Rp 25.000,-</span>
-                                <p>Dapat membeli 4 buah bata ringan.</p> 
+                                <span class="uk-text-bold">{{ $slider->nominal_text_1_detail_information }}</span>
+                                <p>{{ $slider->excerpt_icon_1_detail_information }}</p> 
                             </div>
                             <div class="uk-card slide-home-item uk-text-center">
-                                <img src="{{ asset('img/home/home-reason-2.png') }}" alt="">
+                                <img src="{{ Voyager::image( $slider->icon_image_2_detail_information ) }}" alt="">
                                 <div class="uk-overlay-small"></div>
                                 <br>
-                                <span class="uk-text-bold">Rp 50.000,-</span>
-                                <p>Dapat membeli 1 dus keramik</p>
+                                <span class="uk-text-bold">{{ $slider->nominal_text_2_detail_information }}</span>
+                                <p>{{ $slider->excerpt_icon_2_detail_information }}</p> 
                             </div>
                             <div class="uk-card slide-home-item uk-text-center">
-                                <img src="{{ asset('img/home/home-reason-3.png') }}" alt="">
+                                <img src="{{ Voyager::image( $slider->icon_image_3_detail_information ) }}" alt="">
                                 <div class="uk-overlay-small"></div>
                                 <br>
-                                <span class="uk-text-bold">Rp 100.000,-</span>
-                                <p>Dapat membeli 50 buah genteng.</p>
+                                <span class="uk-text-bold">{{ $slider->nominal_text_3_detail_information }}</span>
+                                <p>{{ $slider->excerpt_icon_3_detail_information }}</p> 
                             </div>
                         </div>
                     </div>
                     <div class="klik-detail">
-                        Informasi selengkapnya
-                        <a href="{{ url('/detail/membangun-rumah') }}" style="text-decoration: underline;">klik disini 
+                        Informasi selengkapnya 
+                        @if($slider->url_detail_donation_type == "")
+                        <a href="{{ url('/detail/'. slugify($slider->title.'-'.$slider->sub_title ) ) }}" style="text-decoration: underline;">{{ $slider->cta_text_detail_donation }}
                             <img src="{{ asset('img/arrow-right.png') }}" alt="">
                         </a>
+                        @else
+                        <a href="{{ $slider->url_detail_donation_type }}" target="_blank" style="text-decoration: underline;">{{ $slider->cta_text_detail_donation }}
+                            <img src="{{ asset('img/arrow-right.png') }}" alt="">
+                        </a>
+                        @endif
                     </div>
                 </div>
                 <div class="flex-about-btn">
-                    <a href="{{ url('/donasi/membangun-rumah') }}" class="uk-button btnZoomHover buttonOrange">donasi sekarang</a>
+                    <a href="{{ url('/donasi/'. slugify($slider->title.'-'.$slider->sub_title ) ) }}" class="uk-button btnZoomHover buttonOrange">{{ $slider->cta_text_on_button }}</a>
                 </div>
             </div>
-            <div class="flex-slide about" style="background: url({{ asset('img/bangun_sanitasi.jpg') }});background-repeat:no-repeat;background-size:cover;">
+            @endforeach
+            <!-- <div class="flex-slide about" style="background: url({{ asset('img/bangun_sanitasi.jpg') }});background-repeat:no-repeat;background-size:cover;">
                 <div class="flex-title">Membangun <br>
                     <span>Sanitasi</span></div>
                 <div class="flex-about">
@@ -89,8 +97,8 @@
                 <div class="flex-about-btn">
                     <a href="{{ url('/donasi/membangun-sanitasi') }}" class="uk-button btnZoomHover buttonOrange">donasi sekarang</a>
                 </div>
-            </div>
-            <div class="flex-slide contact" style="background: url({{ asset('img/bangun_air.jpg') }});background-repeat:no-repeat;background-size:cover;">
+            </div> -->
+            <!-- <div class="flex-slide contact" style="background: url({{ asset('img/bangun_air.jpg') }});background-repeat:no-repeat;background-size:cover;">
                 <div class="flex-title">Membangun <br> <span>Air Bersih</span></div>
                     <div class="flex-about">
                             <h2>Akses Air Bersih</h2>
@@ -130,26 +138,28 @@
                     <div class="flex-about-btn">
                         <a href="{{ url('/donasi/membangun-rumah') }}" class="uk-button btnZoomHover buttonOrange">donasi sekarang</a>
                     </div>
-            </div>
+            </div> -->
         </div>
 
         <div class="uk-hidden@m">
             <div class="uk-grid-collapse uk-child-width-expand@s" uk-grid>
+                @foreach($sliders as $slider)
                 <div>
                     <div class="">
-                        <div class="uk-background-cover uk-height-medium uk-width-large" style="background-image: url({{ asset('img/banner-1-homepage-mobile.jpg') }});height:190px;width:100%;background-repeat:no-repeat;background-size:cover;">
+                        <div class="uk-background-cover uk-height-medium uk-width-large" style="background-image: url({{ Voyager::image( $slider->background_image_mobile ) }});height:190px;width:100%;background-repeat:no-repeat;background-size:cover;">
                             <div class="label-slide-mobile uk-text-right">
-                                <h2>Membangun</h2><span>Rumah</span>
+                                <h2>{{ $slider->title }}</h2><span>{{ $slider->sub_title }}</span>
                             </div>
                             <div class="uk-overlay"></div>
                             <div class="uk-overlay"></div>
                             <p class="uk-h4 uk-margin-remove uk-hidden@m link-donation-help uk-text-center">
-                                <a uk-toggle="target: #modal-building-home-mobile" class="btnZoomHover">Bantu Donasi</a>
+                                <a uk-toggle="target: #modal-{{slugify($slider->title.'-'.$slider->sub_title )}}" class="btnZoomHover">{{ $slider->cta_text_on_button_mobile }}</a>
                             </p>
                         </div>
                     </div>
                 </div>
-                <div>
+                @endforeach
+                <!-- <div>
                     <div class="">
                         <div class="uk-background-cover uk-height-medium uk-width-large" style="background-image: url({{ asset('img/banner-2-homepage-mobile.jpg') }} );height:190px;width:100%;background-repeat:no-repeat;background-size:cover;">
                             <div class="label-slide-mobile uk-text-right">
@@ -176,7 +186,7 @@
                             </p>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </div>
@@ -184,8 +194,9 @@
     <!-- end slider -->
 
 
+    @foreach($sliders as $slider)
     <!-- modal building-home-mobile -->
-    <div id="modal-building-home-mobile" class="uk-modal-full" uk-modal>
+    <div id="modal-{{slugify($slider->title.'-'.$slider->sub_title )}}" class="uk-modal-full" uk-modal>
          <nav class="uk-navbar-container list-modal-homepage uk-visible@ uk-hidden@m" uk-navbar style="height: 50px;">
             <div class="uk-navbar-right">
                 <ul class="uk-navbar-nav nav-right-mobile">
@@ -198,8 +209,8 @@
             </div>
         </nav>
         <div class="uk-modal-dialog uk-modal-body description-donation-modal">
-            <h2>Tiada Tempat Sebaik Rumah</h2>
-            <p>Rumah merupakan tempat bernaung dan tempat untuk pulang. Memiliki rumah adalah hak dasar, tetapi tak semua orang memiliki kesempatan tinggal di rumah yang layak dan nyaman. Bergeraklah bersama kami untuk menciptakan rumah yang layak untuk mereka.</p>
+            <h2>{{ $slider->title_detail_information }}</h2>
+            <p>{{ $slider->description_detail_information }}</p>
             <div class="uk-child-width-1-1@s uk-text-center" uk-grid>
                 <div>
                     <div class="uk-card">
@@ -208,14 +219,14 @@
                                     <div uk-grid>
                                         <div>
                                             <div style="width: 20vw;">
-                                                <img src="{{ asset('img/home/home-reason-1-icon.png') }}" alt="">
+                                                <img src="{{ Voyager::image( $slider->icon_image_1_detail_information ) }}" alt="">
                                             </div>
                                         </div>
                                         <div style="padding-left:10px;">
                                             <div class="uk-text-left detail-donation" style="width: 57vw;">
-                                                <span>Rp 25.000,-</span>
+                                                <span>{{ $slider->nominal_text_1_detail_information }}</span>
                                                 <p class="uk-text-left">
-                                                    Dapat membeli 1 lembar triplek 9mm untuk membangun atap rumah. 
+                                                {{ $slider->excerpt_icon_1_detail_information }}
                                                 </p>
                                             </div>
                                         </div>
@@ -231,14 +242,14 @@
                                     <div uk-grid>
                                         <div>
                                             <div style="width: 20vw;">
-                                                <img src="{{ asset('img/home/home-reason-2-icon.png') }}" alt="">
+                                                <img src="{{ Voyager::image( $slider->icon_image_2_detail_information ) }}" alt="">
                                             </div>
                                         </div>
                                         <div style="padding-left:10px;">
                                             <div class="uk-text-left detail-donation" style="width: 57vw;">
-                                                <span>Rp 50.000,-</span>
+                                                <span>{{ $slider->nominal_text_2_detail_information }}</span>
                                                 <p class="uk-text-left">
-                                                    Dapat membeli 500 batu bata merah untuk membangun dinding rumah.
+                                                {{ $slider->excerpt_icon_2_detail_information }}
                                                 </p>
                                             </div>
                                         </div>
@@ -254,14 +265,14 @@
                                     <div uk-grid>
                                         <div>
                                             <div style="width: 20vw;">
-                                                <img src="{{ asset('img/home/home-reason-3-icon.png') }}" alt="">
+                                                <img src="{{ Voyager::image( $slider->icon_image_3_detail_information ) }}" alt="">
                                             </div>
                                         </div>
                                         <div style="padding-left:10px;">
                                             <div class="uk-text-left detail-donation" style="width: 57vw;">
-                                                <span>Rp 100.000,-</span>
+                                                <span>{{ $slider->nominal_text_3_detail_information }}</span>
                                                 <p class="uk-text-left">
-                                                    Dapat membeli 20 sak semen sebagai bahan baku pembangunan rumah.
+                                                {{ $slider->excerpt_icon_3_detail_information }}
                                                 </p>
                                             </div>
                                         </div>
@@ -291,6 +302,7 @@
             </div>
         </nav>
     </div>
+    @endforeach
 
     <!-- modal building-sanitize-mobile -->
     <div id="modal-building-sanitize-mobile" class="uk-modal-full" uk-modal>

@@ -37,46 +37,13 @@ class DonationController extends Controller
      */
     public function index($type)
     {
-      switch ($type) {
-        case 'membangun-rumah':
-          $label = "Membangun Rumah";
-          break;
-        case 'membangun-air':
-          $label = "Membangun Air Bersih";
-          break;
-        case 'membangun-sanitasi':
-          $label = "Membangun Sanitasi";
-          break;
-        
-        default:
-          $label = "Membangun Rumah";
-          break;
-      }
+      $label = str_replace('-',' ',$type);
       return view('client.form', compact('label', 'type'));
-    }
-
-    public function test(){
-      $data['donations'] = Donation::orderBy('id', 'desc')->paginate(8);
-      return view('welcome', $data);
     }
 
     public function types($type)
     {
-      switch ($type) {
-        case 'membangun-rumah':
-          $label = "Rumah";
-          break;
-        case 'membangun-air':
-          $label = "Air Bersih";
-          break;
-        case 'membangun-sanitasi':
-          $label = "Sanitasi";
-          break;
-        
-        default:
-          $label = "Rumah";
-          break;
-      }
+      $label = str_replace('-',' ',$type);
       return view('client.donation-type.detail_donation_type', compact('label', 'type'));
     }
  

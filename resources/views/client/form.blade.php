@@ -1,5 +1,7 @@
 @extends('client.layouts.layout')
 
+@section('title',  'Form Donasi Dukung Habitat')
+
 @section('content')
 
 <section>
