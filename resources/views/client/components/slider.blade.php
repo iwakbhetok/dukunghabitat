@@ -12,7 +12,7 @@
                     <span>{{ $slider->sub_title }}</span></div>
                 <div class="flex-about flex-about-home">
                     <h2>{{ $slider->title_detail_information }}</h2>
-                    <p>{{ $slider->description_detail_information }}</p>
+                    <p>{{ $slider->excerpt_detail_information }}</p>
                     <div class="">
                         <div class="uk-flex slide-home-items uk-width-1-1">
                             <div class="uk-card slide-home-item uk-text-center">

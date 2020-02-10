@@ -1,5 +1,4 @@
 <!-- article -->
-
 <div class="uk-section section-article uk-padding-remove-bottom">
             <div class="uk-container-expand">
                     <h3 class="label-article uk-text-uppercase uk-visible@s" style="padding-left:110px;">Artikel
@@ -15,6 +14,9 @@
                     
                             <ul class="uk-slider-items uk-child-width-1-2@s uk-grid article-list">
                             @foreach($posts as $post)
+                            @php
+                            $url = urlencode($post->title .' - '.url($post->slug));
+                            @endphp
                                 <li>
                                     <div class="uk-card uk-card-default article-item">
                                         <div class="uk-card-media-top">
@@ -36,22 +38,26 @@
                                                     <p class="uk-text-left uk-margin-remove-bottom share-text">share :</p>
                                                             <div class="uk-flex icon-share uk-margin-small-bottom">
                                                                 <div class="uk-card uk-margin-small-right">
-                                                                    <a href="#">
+                                                                    <a href="https://wa.me/?text={{ $url }}" class="wa" target="_blank">
                                                                         <img data-src="{{ asset('img/wa-article-icon.png') }}" alt="" class="lazy">
                                                                     </a>
                                                                 </div>
                                                                 <div class="uk-card uk-margin-small-right">
-                                                                    <a href="#">
+                                                                    <a href="https://twitter.com/share?url={{ url($post->slug) }}&via=HabitatID&text={{ $post->title }}"
+        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+        target="_blank" title="Share on Twitter" class="lazy">
                                                                         <img data-src="{{ asset('img/twt-article-icon.png') }}" alt="" class="lazy">
                                                                     </a>
                                                                 </div>
                                                                 <div class="uk-card uk-margin-small-right">
-                                                                    <a href="#">
+                                                                    <a href="mailto:?subject={{ $post->title }}&amp;body=Check out this site {{ url($post->slug) }}" title="Share {{ $post->title }}">
                                                                         <img data-src="{{ asset('img/mail-article-icon.png') }}" alt="" class="lazy">
                                                                     </a>
                                                                 </div>
                                                                 <div class="uk-card uk-margin-small-right">
-                                                                    <a href="#">
+                                                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ url($post->slug) }}&t={{ $post->title }}"
+    onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+    target="_blank" title="Share on Facebook" class="lazy">
                                                                         <img data-src="{{ asset('img/fb-article-icon.png') }}" alt="" class="lazy">
                                                                     </a>
                                                                 </div>

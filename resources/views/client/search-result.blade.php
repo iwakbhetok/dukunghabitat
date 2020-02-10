@@ -33,6 +33,9 @@
                     
                             <ul class="uk-slider-items uk-child-width-1-2@s uk-grid article-list">
                                 @foreach($posts as $post)
+                                @php
+                                $url = urlencode($post->title .' - '.url($post->slug));
+                                @endphp
                                 <li>
                                     <div class="uk-card uk-card-default article-item">
                                         <div class="uk-card-media-top">
@@ -53,22 +56,26 @@
                                                             <p class="uk-text-left uk-margin-remove-bottom share-text">share :</p>
                                                             <div class="uk-flex icon-share uk-margin-small-bottom">
                                                                 <div class="uk-card uk-margin-small-right">
-                                                                    <a href="#">
+                                                                    <a href="https://wa.me/?text={{ $url }}" class="wa" target="_blank">
                                                                         <img data-src="{{ asset('img/wa-article-icon.png') }}" alt="" class="lazy">
                                                                     </a>
                                                                 </div>
                                                                 <div class="uk-card uk-margin-small-right">
-                                                                    <a href="#">
+                                                                    <a href="https://twitter.com/share?url={{ url($post->slug) }}&via=HabitatID&text={{ $post->title }}"
+            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+            target="_blank" title="Share on Twitter">
                                                                         <img data-src="{{ asset('img/twt-article-icon.png') }}" alt="" class="lazy">
                                                                     </a>
                                                                 </div>
                                                                 <div class="uk-card uk-margin-small-right">
-                                                                    <a href="#">
+                                                                    <a href="mailto:?subject={{ $post->title }}&amp;body=Check out this site {{ url($post->slug) }}" title="Share {{ $post->title }}">
                                                                         <img data-src="{{ asset('img/mail-article-icon.png') }}" alt="" class="lazy">
                                                                     </a>
                                                                 </div>
                                                                 <div class="uk-card uk-margin-small-right">
-                                                                    <a href="#">
+                                                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ url($post->slug) }}&t={{ $post->title }}"
+        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+        target="_blank" title="Share on Facebook">
                                                                         <img data-src="{{ asset('img/fb-article-icon.png') }}" alt="" class="lazy">
                                                                     </a>
                                                                 </div>
@@ -153,16 +160,18 @@
             <hr class="right-donation">
             <br>
             <div class="uk-grid-medium uk-child-width-expand@s uk-text-center shortcut-donation-container" uk-grid>
+                @foreach($sliders as $slider)
                 <div>
-                    <a href="{{ url('donasi/membangun-rumah')}}">
+                    <a href="{{ url('donasi/'. slugify($slider->title.'-'.$slider->sub_title ))}}">
                     <div class="uk-card shortcut-donation">
-                        <img src="{{ asset('img/donasi-membangun-rumah.jpg') }}" alt="">
-                        <p class="uk-text-center">Membangun</p>
-                        <span>Rumah</span>
+                        <img src="{{ Voyager::image( $slider->background_image_mobile ) }}" alt="" style="border-radius:5px;">
+                        <p class="uk-text-center">{{ $slider->title }}</p>
+                        <span>{{ $slider->sub_title }}</span>
                     </div>
                     </a>
                 </div>
-                <div>
+                @endforeach
+                <!-- <div>
                     <a href="{{ url('donasi/membangun-sanitasi')}}">
                     <div class="uk-card shortcut-donation">
                         <img src="{{ asset('img/donasi-membangun-sanitasi.png') }}" alt="">
@@ -179,7 +188,7 @@
                         <span>Air Bersih</span>
                     </div>
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- end article -->

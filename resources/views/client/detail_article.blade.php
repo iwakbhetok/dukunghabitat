@@ -21,7 +21,7 @@
 @section('content')
 
 @php
-$url = urlencode($article->title .' - '. url('/') .' - '.url()->current());
+$url = urlencode($article->title .' - '.url()->current());
 @endphp
 <section class="slider-building uk-visible@s">
         <div class="uk-container-expand">
@@ -81,7 +81,7 @@ $url = urlencode($article->title .' - '. url('/') .' - '.url()->current());
                                                 </a>
                                             </li>
                                             <li>
-                                            <a href="https://twitter.com/share?url={{ url()->current() }}&via=Habitat_org&text={{ $article->title }}"
+                                            <a href="https://twitter.com/share?url={{ url()->current() }}&via=HabitatID&text={{ $article->title }}"
    onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
    target="_blank" title="Share on Twitter">
                                                     <img src="{{ asset('img/tw-share-desktop.png') }}" alt="">   
@@ -93,7 +93,7 @@ $url = urlencode($article->title .' - '. url('/') .' - '.url()->current());
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="mailto:?subject={{ $article->title }}&amp;body=Check out this site {{ url($article->slug) }}" title="Share {{ $article->title }}">
                                                     <img src="{{ asset('img/mail-share-desktop.png') }}" alt="">   
                                                 </a>
                                             </li>
@@ -296,7 +296,7 @@ $url = urlencode($article->title .' - '. url('/') .' - '.url()->current());
         <div class="uk-height-small uk-hidden@s" style="background-image: url({{ asset('img/articles/bg-detail-article-mobile.jpg') }} );margin-top:-39%;"></div>
     </div>
 
-    <div class="uk-hidden@s">
+    <div class="uk-hidden@m uk-hidden@s">
         <div class="bottom-share" id="myNavbar">
         
         <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}&t={{ $article->title }}"
@@ -304,7 +304,7 @@ $url = urlencode($article->title .' - '. url('/') .' - '.url()->current());
     target="_blank" title="Share on Facebook" class="fb">
             <img src="{{ asset('img/fb-share-desktop.png') }}" alt="">
         </a>
-        <a href="https://twitter.com/share?url={{ url()->current() }}&via=Habitat_org&text={{ $article->title }}"
+        <a href="https://twitter.com/share?url={{ url()->current() }}&via=HabitatID&text={{ $article->title }}"
     onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
     target="_blank" title="Share on Twitter" class="tw">
             <img src="{{ asset('img/tw-share-desktop.png') }}" alt="">
