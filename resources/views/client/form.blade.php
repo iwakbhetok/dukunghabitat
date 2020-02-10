@@ -6,7 +6,7 @@
 
 <section>
         <div class="uk-container-expand">
-            <div class="uk-cover-container uk-visible@s" style="background-image:url('{{ asset('img/bg-donation.jpg') }}');background-size: cover;background-position: center;">
+            <div class="uk-cover-container uk-visible@s" style="background-image:url('{{ asset('img/new-bg-form.jpg') }}');background-size: cover;background-position: top;">
                 <div class="uk-flex uk-flex-center">
                     <div class="uk-card uk-card-body">
                     <form method="POST" onsubmit="return submitFormDesktop();">
@@ -70,10 +70,10 @@
                             <p class="uk-padding-large uk-padding-remove-top uk-padding-remove-bottom uk-text-center">Donasi Anda akan turut berpartisipasi dalam kegiatan membantu orang lain memiliki kualitas hidup yang lebih layak.</p>
                             <div class="uk-flex uk-flex-center">
                                 <div class="uk-card">
-                                    <img data-src="{{ asset('img/lock-icon.png') }}" alt="" class="lazy">
+                                    <img data-src="{{ asset('img/locked-padlock.png') }}" alt="" class="lazy">
                                 </div>
                                 <div class="uk-card uk-margin-left">
-                                    <img data-src="{{ asset('img/shield-icon.png') }}" alt="" class="lazy">
+                                    <img data-src="{{ asset('img/shield.png') }}" alt="" class="lazy">
                                 </div>
                             </div>
                             <div class="uk-flex uk-flex-center">
@@ -174,10 +174,10 @@
                             <p class="uk-padding-large uk-padding-remove-top uk-padding-remove-bottom uk-text-center">Donasi Anda akan turut berpartisipasi dalam kegiatan membantu orang lain memiliki kualitas hidup yang lebih layak.</p>
                             <div class="uk-flex uk-flex-center">
                                 <div class="uk-card">
-                                    <img data-src="{{ asset('img/lock-icon.png') }}" alt="" class="lazy">
+                                    <img data-src="{{ asset('img/locked-padlock.png') }}" alt="" class="lazy">
                                 </div>
                                 <div class="uk-card uk-margin-left">
-                                    <img data-src="{{ asset('img/shield-icon.png') }}" alt="" class="lazy">
+                                    <img data-src="{{ asset('img/shield.png') }}" alt="" class="lazy">
                                 </div>
                             </div>
                             <div class="uk-flex uk-flex-center">
