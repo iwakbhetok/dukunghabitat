@@ -1,6 +1,8 @@
 
 @extends('client.layouts.layout')
 
+@section('title',  'Halaman Tidak Ditemukan')
+
 @section('content')
 
 <section>

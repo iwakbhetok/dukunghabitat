@@ -25,27 +25,26 @@
                 <p class="uk-text-center uk-text-uppercase">Follow us</p>
                 <div class="uk-flex uk-flex-center">
                     <div class="uk-card-media-top">
-                        <a href="#">
+                        <a href="https://www.facebook.com/habitat.indonesia" target="_blank">
                             <img src="{{ asset('img/fb-icon.png') }}" alt="" style="margin-left: 5px;margin-right: 5px;">
                         </a>
                     </div>
                     <div class="uk-card uk-margin-left">
-                        <a href="#">
+                        <a href="https://www.youtube.com/user/hfhindonesia" target="_blank">
                             <img src="{{ asset('img/yt-icon.png') }}" alt="">
                         </a>
                     </div>
                     <div class="uk-card uk-margin-left">
-                        <a href="#">
+                        <a href="https://www.instagram.com/habitat_id/" target="_blank">
                             <img src="{{ asset('img/ig-icon.png') }}" alt="">
                         </a>
-                        <!-- <a href="" uk-icon="icon: instagram"></a> -->
                     </div>
                 </div>
             </div>
             <div class="uk-card uk-padding-small uk-padding-remove-bottom">
                 <div class="uk-flex uk-flex-center link-sitemap-mobile">
                     <div class="uk-card-media-top">
-                        <a href="#" class="uk-text-uppercase">Donasi</a>    
+                        <a href="{{ url('/') }}" class="uk-text-uppercase">Donasi</a>
                     </div>
                     <!-- <div class="uk-card uk-margin-left">
                         <a href="#" class="uk-text-uppercase">Artikel</a>
@@ -62,8 +61,12 @@
                     Powered by
                 </div>
                 <div class="uk-text-center">
-                    <img src="{{ asset('img/logo-iprospect-white.png') }}" alt="" style="width:30%;margin-top:10px;">
-                    <img src="{{ asset('img/logo-dan-mobile.png') }}" alt="" style="margin-left:10px;margin-top:15px;">
+                    <a href="https://www.iprospect.com/en/id/" target="_blank">
+                        <img src="{{ asset('img/logo-iprospect-white.png') }}" alt="" style="width:30%;margin-top:10px;">
+                    </a>
+                    <a href="https://www.dentsuaegisnetwork.com" target="_blank">
+                        <img src="{{ asset('img/logo-dan-mobile.png') }}" alt="" style="margin-left:10px;margin-top:15px;">
+                    </a>
                 </div>
             </div>
         </div>

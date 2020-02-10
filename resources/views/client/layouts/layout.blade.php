@@ -30,6 +30,7 @@
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit-icons.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.0.0/dist/lazyload.min.js"></script>
+    @yield('css_add')
     
     <!-- <link rel="stylesheet" href="dist/css/style-min.css" /> -->
     <link rel="stylesheet" href="{{ url('css/style.css') }} " />
@@ -63,6 +64,8 @@
 
     
     <!-- <script defer src="dist/js/script-min.js"></script> -->
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
     <script defer src="{{ url('js/autocomplete.js') }}"></script>
     <script defer src="{{ url('js/script.js') }}"></script>
         @yield('pagespecificscripts')

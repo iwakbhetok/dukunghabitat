@@ -14,8 +14,9 @@ Route::group(['prefix' => 'admin'], function () {
                 $grandTotal = Donation::where(['status' => 'success'])->sum('amount');
                 $labelThisMonth = $date->format('F d, Y');
                 $labelLastMonth = $date->subMonth()->format('F Y');
-                $totalThisMonth = Donation::where(['status' => 'success'])->whereMonth('created_at', $date->format('m'))->sum('amount');
-                $totalLastMonth = Donation::where(['status' => 'success'])->whereMonth('created_at', $date->subMonth()->format('m'))->sum('amount');
+                $prevmonth = date('m', strtotime('-1 months'));
+                $totalThisMonth = Donation::where(['status' => 'success'])->whereMonth('created_at', date('m'))->sum('amount');
+                $totalLastMonth = Donation::where(['status' => 'success'])->whereMonth('created_at', $prevmonth)->sum('amount');
                 return view('vendor.voyager.index', compact('grandTotal','labelLastMonth', 'labelThisMonth', 'totalLastMonth', 'totalThisMonth'));
             }else{
                 return redirect('admin/login');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Donation;
+use App\Slider;
 use Veritrans_Config;
 use Veritrans_Snap;
 use Veritrans_Notification;
@@ -43,8 +44,20 @@ class DonationController extends Controller
 
     public function types($type)
     {
-      $label = str_replace('-',' ',$type);
-      return view('client.donation-type.detail_donation_type', compact('label', 'type'));
+        // find type slug based on  concat temp slug between title and sub title slider
+        $sliders = Slider::where('status', 'ENABLE')->get();
+        
+        foreach ($sliders as $slider) {
+            $tempSlugItem = slugify($slider->title. ' '. $slider->sub_title);
+            if($type == $tempSlugItem){
+                $label = str_replace('-',' ',$type);
+                return view('client.donation-type.detail_donation_type', compact('label', 'type', 'slider'));
+            }
+            // else{
+            //     return abort(404);
+            // }   
+        }
+        return abort(404);
     }
  
     /**

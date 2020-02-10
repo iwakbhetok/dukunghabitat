@@ -6,7 +6,7 @@
             
                     <ul class="uk-navbar-nav">
                         <li><a href="{{ url('/') }}">
-                            <img data-src="{{ asset('img/logo-putih.png') }}" alt="" style="height: 50px;" class="lazy">
+                        <img data-src="{{ Voyager::image( Voyager::setting('site.logo') ) }}" alt="" style="height: 50px;" class="lazy">
                         </a></li>
                     </ul>
             
@@ -19,7 +19,7 @@
                             <hr class="uk-divider-vertical" style="height: 30px;margin:auto;margin-top:25px;">
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://www.facebook.com/habitat.indonesia" target="_blank">
                                 <img data-src="{{ asset('img/fb-icon.png') }}" alt="" class="lazy">
                             </a>
                         </li>
@@ -27,7 +27,7 @@
                             <hr class="uk-divider-vertical" style="height: 30px;margin:auto;margin-top:25px;">
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://www.youtube.com/user/hfhindonesia" target="_blank">
                                 <img src="{{ asset('img/yt-icon.png') }}" alt="">
                             </a>
                         </li>
@@ -35,7 +35,7 @@
                             <hr class="uk-divider-vertical" style="height: 30px;margin:auto;margin-top:25px;">
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="https://www.instagram.com/habitat_id/" target="_blank">
                                 <img src="{{ asset('img/ig-icon.png') }}" alt="">
                             </a>
                         </li>
@@ -43,7 +43,7 @@
                             <hr class="uk-divider-vertical" style="height: 30px;margin:auto;margin-top:25px;">
                         </li>
                         <li>
-                            <a href="">Hubungi Kami</a>
+                            <a href="mailto:{{ Voyager::setting('site.email') }}" target="_top">Hubungi Kami</a>
                         </li>
                         <li>
                             <hr class="uk-divider-vertical" style="height: 30px;margin:auto;margin-top:25px;">
@@ -97,7 +97,7 @@
                     <ul class="uk-navbar-nav">
                         <li>
                             <a href="{{ url('/') }}">
-                                <img data-src="{{ asset('img/logo-putih.png') }}" alt="" style="height: 50px;" class="lazy">
+                                <img data-src="{{ Voyager::image( Voyager::setting('site.logo') ) }}" alt="" style="height: 50px;" class="lazy">
                             </a>
                         </li>
                     </ul>
@@ -120,7 +120,7 @@
                         <ul class="uk-navbar-nav">
                             <li>
                                 <a href="{{ url('/') }}">
-                                    <img data-src="{{ asset('img/logo-putih.png') }}" alt="" style="height: 50px;" class="lazy">
+                                    <img data-src="{{ Voyager::image( Voyager::setting('site.logo') ) }}" alt="" style="height: 50px;" class="lazy">
                                 </a>
                             </li>
                         </ul>
@@ -144,11 +144,11 @@
                                 <div class="uk-card bg-dark">
                                     <ul class="uk-nav uk-text-left">
                                         <li>
-                                            <a href="#">Bantu Donasi</a>
+                                            <a href="{{ url('') }}">Bantu Donasi</a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="#">Baca Artikel</a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="http://www.habitatindonesia.org/" target="_blank">Tentang Kami</a>
                                         </li>
@@ -164,17 +164,17 @@
                                     <p class="uk-text-left uk-text-uppercase">Follow us</p>
                                     <div class="uk-flex uk-flex-left">
                                         <div class="uk-card-media-top">
-                                            <a href="#">
+                                            <a href="https://www.facebook.com/habitat.indonesia" target="_blank">
                                                 <img src="{{ asset('img/fb-icon.png') }}" alt="" style="margin-left: 5px;margin-right: 5px;">
                                             </a>
                                         </div>
                                         <div class="uk-card uk-margin-left">
-                                            <a href="#">
+                                            <a href="https://www.youtube.com/user/hfhindonesia" target="_blank">
                                                 <img src="{{ asset('img/yt-icon.png') }}" alt="">
                                             </a>
                                         </div>
                                         <div class="uk-card uk-margin-left">
-                                            <a href="#">
+                                            <a href="https://www.instagram.com/habitat_id/" target="_blank">
                                                 <img src="{{ asset('img/ig-icon.png') }}" alt="">
                                             </a>
                                         </div>

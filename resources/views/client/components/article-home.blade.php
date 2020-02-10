@@ -19,7 +19,7 @@
                                     <div class="uk-card uk-card-default article-item">
                                         <div class="uk-card-media-top">
                                             <a href="{{ $post->slug }}">
-                                                <img data-src="{{ Voyager::image( voyager_image($post->image, 'medium') ) }}" alt="" class="lazy">
+                                                <img data-src="{{ Voyager::image( voyager_image($post->image, 'cropped') ) }}" alt="" class="lazy" style="height: 100%; width: 100%; object-fit: contain;">
                                             </a>
                                         </div>
                                         <div class="uk-card-body article-content">

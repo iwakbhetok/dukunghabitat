@@ -29,7 +29,7 @@
                         </div>
                         <div>
                             <div class="uk-card uk-margin-top">
-                                <a href="#">DONASI</a>
+                                <a href="{{ url('/') }}">DONASI</a>
                             </div>
                         </div>
                         <!-- <div>
@@ -39,7 +39,7 @@
                         </div> -->
                         <div>
                             <div class="uk-card uk-margin-top">
-                                <a href="#">HUBUNGI</a>
+                                <a href="mailto:{{ Voyager::setting('site.email') }}" target="_top">HUBUNGI</a>
                             </div>
                         </div>
                     </div>
@@ -54,21 +54,21 @@
                     <div class="uk-grid-small uk-text-left" uk-grid>
                         <div>
                             <div class="uk-card">
-                                <a href="#">
+                                <a href="https://www.facebook.com/habitat.indonesia" target="_blank">
                                     <img src="{{ asset('img/fb-icon.png') }}" alt="" style="margin-left: 5px;margin-right: 5px;">
                                 </a>
                             </div>
                         </div>
                         <div>
                             <div class="uk-card">
-                                <a href="#">
+                                <a href="https://www.youtube.com/user/hfhindonesia" target="_blank">
                                     <img src="{{ asset('img/yt-icon.png') }}" alt="">
                                 </a>
                             </div>
                         </div>
                         <div>
                             <div class="uk-card">
-                                <a href="#">
+                                <a href="https://www.instagram.com/habitat_id/" target="_blank">
                                     <img src="{{ asset('img/ig-icon.png') }}" alt="">
                                 </a>
                             </div>
@@ -80,8 +80,12 @@
                         Powered by
                     </div>
                     <div class="uk-text-left img-powered">
-                        <img src="{{ asset('img/logo-iprospect-white.png') }}" alt="" style="width:40%;">
-                        <img src="{{ asset('img/logo-dan-desktop.png') }}" alt="" style="margin-left:15px;margin-top:10px;">
+                        <a href="https://www.iprospect.com/en/id/" target="_blank">
+                            <img src="{{ asset('img/logo-iprospect-white.png') }}" alt="" style="width:40%;">
+                        </a>
+                        <a href="https://www.dentsuaegisnetwork.com" target="_blank">
+                            <img src="{{ asset('img/logo-dan-desktop.png') }}" alt="" style="margin-left:15px;margin-top:10px;">
+                        </a>
                     </div>
                 </div>
             </div>

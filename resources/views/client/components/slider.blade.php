@@ -210,7 +210,7 @@
         </nav>
         <div class="uk-modal-dialog uk-modal-body description-donation-modal">
             <h2>{{ $slider->title_detail_information }}</h2>
-            <p>{{ $slider->description_detail_information }}</p>
+            <p>{{ $slider->excerpt_detail_information }}</p>
             <div class="uk-child-width-1-1@s uk-text-center" uk-grid>
                 <div>
                     <div class="uk-card">
@@ -284,10 +284,10 @@
                 <div class="element-home-modal-mobile"></div>
             </div>
             <p class="uk-h4 uk-margin-remove uk-hidden@m link-donation-help-mobile uk-text-center">
-                <a class="uk-button uk-width-1-1 btnZoomHover" href="{{ url('/donasi/membangun-rumah') }}">Donasi Sekarang</a>
+                <a class="uk-button uk-width-1-1 btnZoomHover" href="{{ url('/donasi/'. slugify($slider->title.'-'.$slider->sub_title )) }}">{{ $slider->cta_text_on_button }}</a>
             </p>
             <div class="uk-text-center link-read-detail">
-                    <a href="{{ url('/detail/membangun-rumah') }}" class="uk-text-uppercase">baca lebih detail</a>
+                    <a href="{{ url('/detail/'. slugify($slider->title.'-'.$slider->sub_title )) }}" class="uk-text-uppercase">{{ $slider->cta_text_detail_donation_mobile }}</a>
             </div>
         </div>
         <nav class="uk-navbar-container list-modal-homepage uk-visible@ uk-hidden@m" uk-navbar>
@@ -305,7 +305,7 @@
     @endforeach
 
     <!-- modal building-sanitize-mobile -->
-    <div id="modal-building-sanitize-mobile" class="uk-modal-full" uk-modal>
+    <!-- <div id="modal-building-sanitize-mobile" class="uk-modal-full" uk-modal>
             <nav class="uk-navbar-container list-modal-homepage uk-visible@ uk-hidden@m" uk-navbar style="height: 50px;">
                 <div class="uk-navbar-right">
                     <ul class="uk-navbar-nav nav-right-mobile">
@@ -405,10 +405,10 @@
                     </ul>
                 </div>
             </nav>
-        </div>
+        </div> -->
 
         <!-- modal building-water-mobile -->
-    <div id="modal-building-water-mobile" class="uk-modal-full" uk-modal>
+    <!-- <div id="modal-building-water-mobile" class="uk-modal-full" uk-modal>
             <nav class="uk-navbar-container list-modal-homepage uk-visible@ uk-hidden@m" uk-navbar style="height: 50px;">
                 <div class="uk-navbar-right">
                     <ul class="uk-navbar-nav nav-right-mobile">
@@ -508,4 +508,4 @@
                     </ul>
                 </div>
             </nav>
-        </div>
+        </div> -->

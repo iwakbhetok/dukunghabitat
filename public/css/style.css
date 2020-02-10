@@ -59,7 +59,6 @@ html,body {
   margin: auto;
   text-align: left;
   padding-left:50px;
-  /* transform: rotate(90deg); */
   top: 4%;
   -webkit-transition: all 500ms ease;
   -moz-transition: all 500ms ease;
@@ -526,6 +525,9 @@ textarea {
 .img-powered{
   width: 100%;
 }
+.img-powered a{
+  border: none;
+}
 .img-powered-mobile{
   width: 50%;
 }
@@ -945,7 +947,7 @@ textarea {
 .contentArticle h1{
   color: #00afd7;
   font-size:1.5rem;
-  padding-top: 24px;
+  margin-top: 25px;
 }
 .contentArticle p{
   color:#636363;
@@ -1404,4 +1406,66 @@ textarea {
 }
 .slider-container{
   padding-left:100px;
+}
+.slick-slide {
+  text-align: center;
+  color: #419be0;
+  background: white;
+  margin: 10px;
+}
+.slick-slider{
+  margin-bottom: 0;
+}
+.share-article ul{
+  padding-top: 50px;
+}
+.share-article{
+  /* position: fixed;
+  left: -2%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-20%); */
+}
+.share-article ul>li{
+  list-style: none;
+  padding-bottom:10px;
+  width: 40px;
+}
+/* Place the navbar at the bottom of the page, and make it stick */
+.bottom-share {
+  background-color: #333;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Style the links inside the navigation bar */
+.bottom-share a {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 0;
+  text-decoration: none;
+  width: 25%;
+}
+
+/* Add a green background color to the active link */
+.bottom-share a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.bottom-share .fb{
+  background: #3a5897;
+}
+.bottom-share .tw{
+  background: #50abf0;
+}
+.bottom-share .wa{
+  background: #1bd641;
+}
+.bottom-share .mail{
+  background: #233b79;
 }

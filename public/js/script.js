@@ -3,6 +3,17 @@ $( window ).on("load",function() {
         elements_selector: ".lazy"
 	});
 
+	// slide on article detail
+	$(".single-item").slick({
+		dots: false,
+		slidesToShow: 1,
+		centerMode: true,
+		centerPadding: '40px',
+		infinite: true,
+	});
+	$('.slick-prev, .slick-next').hide();
+	
+
 });
 
 function validateEmail(email) {
@@ -11,49 +22,55 @@ function validateEmail(email) {
 }
 
 (function(){
+	
+
 	$('.flex-container').waitForImages(function() {
 		$('.spinner').fadeOut();
 	}, $.noop, true);
 	
 	/** Slide module */
-	$(".flex-slide").each(function(e){
+	$(".flex-slide").each(function(index, el){
 		$(this).hover(function(e){
-			if(e.currentTarget.className == "flex-slide home"){
-				$(".about").css({
-					  filter: 'grayscale(100%)',
-					  "background-size":"cover",
-					  "background-repeat":"no-repeat"
-				});
-				$(".contact").css({
+			if(index == "0"){
+				$('.flex-slide').eq(1).css({
 					filter: 'grayscale(100%)',
 					"background-size":"cover",
 					"background-repeat":"no-repeat"
-			  });
+				});
+				$('.flex-slide').eq(2).css({
+					filter: 'grayscale(100%)',
+					"background-size":"cover",
+					"background-repeat":"no-repeat"
+		  		});
 			}
-			else if(e.currentTarget.className == "flex-slide about"){
-				$(".home").css({
+			else if(index == "1"){
+				$('.flex-slide').eq(0).css({
 					filter: 'grayscale(100%)',
 					"background-size":"cover",
 					"background-repeat":"no-repeat"
 				});
-				$(".contact").css({
+				$('.flex-slide').eq(2).css({
+					filter: 'grayscale(100%)',
+					"background-size":"cover",
+					"background-repeat":"no-repeat"
+		  		});
+			}
+			else if(index == "2"){
+				$('.flex-slide').eq(0).css({
 					filter: 'grayscale(100%)',
 					"background-size":"cover",
 					"background-repeat":"no-repeat"
 				});
+				$('.flex-slide').eq(1).css({
+					filter: 'grayscale(100%)',
+					"background-size":"cover",
+					"background-repeat":"no-repeat"
+		  		});
 			}
 			else{
-				$(".about").css({
-					filter: 'grayscale(100%)',
-					"background-size":"cover",
-					"background-repeat":"no-repeat"
-				});
-				$(".home").css({
-					filter: 'grayscale(100%)',
-					"background-size":"cover",
-					"background-repeat":"no-repeat"
-				});
+				console.log("Hover effect is error. Max slide is 3.");
 			}
+			
 			$(this).find('.flex-title').css({
 				transform: 'rotate(0deg)',
 				top: '4%'
@@ -66,11 +83,11 @@ function validateEmail(email) {
 				top: '0'
 			});
 		}, function(e){
-			if(e.currentTarget.className == "flex-slide home"){
-				$(".about").css({
+			if(index == "0"){
+				$('.flex-slide').eq(1).css({
 					filter: 'grayscale(0%)'
 				});
-				$(".contact").css({
+				$('.flex-slide').eq(2).css({
 					filter: 'grayscale(0%)'
 			  });
 			}
@@ -99,6 +116,113 @@ function validateEmail(email) {
 			});
 		})
 	});
+
+	// $(".flex-slide").each(function(index, el){
+	// 	$(this).hover(function(e){
+	// 		console.log(index);
+	// 		console.log(el);
+	// 		if(index == "0"){
+	// 			$('.flex-slide').eq(1).css({
+	// 				filter: 'grayscale(100%)',
+	// 				"background-size":"cover",
+	// 				"background-repeat":"no-repeat"
+	// 		  });
+	// 		  $('.flex-slide').eq(2).css({
+	// 			filter: 'grayscale(100%)',
+	// 			"background-size":"cover",
+	// 			"background-repeat":"no-repeat"
+	// 	  });
+	// 		}
+	// 		else if(index == "1"){
+	// 			//
+	// 		}
+	// 		else if(index == "2"){
+	// 			//
+	// 		}
+	// 		else{
+	// 			//
+	// 		}
+	// 		if(e.currentTarget.className == "flex-slide home"){
+	// 			$(".about").css({
+	// 				  filter: 'grayscale(100%)',
+	// 				  "background-size":"cover",
+	// 				  "background-repeat":"no-repeat"
+	// 			});
+	// 			$(".contact").css({
+	// 				filter: 'grayscale(100%)',
+	// 				"background-size":"cover",
+	// 				"background-repeat":"no-repeat"
+	// 		  });
+	// 		}
+	// 		else if(e.currentTarget.className == "flex-slide about"){
+	// 			$(".home").css({
+	// 				filter: 'grayscale(100%)',
+	// 				"background-size":"cover",
+	// 				"background-repeat":"no-repeat"
+	// 			});
+	// 			$(".contact").css({
+	// 				filter: 'grayscale(100%)',
+	// 				"background-size":"cover",
+	// 				"background-repeat":"no-repeat"
+	// 			});
+	// 		}
+	// 		else{
+	// 			$(".about").css({
+	// 				filter: 'grayscale(100%)',
+	// 				"background-size":"cover",
+	// 				"background-repeat":"no-repeat"
+	// 			});
+	// 			$(".home").css({
+	// 				filter: 'grayscale(100%)',
+	// 				"background-size":"cover",
+	// 				"background-repeat":"no-repeat"
+	// 			});
+	// 		}
+	// 		$(this).find('.flex-title').css({
+	// 			transform: 'rotate(0deg)',
+	// 			top: '4%'
+	// 		});
+	// 		$(this).find('.flex-about').css({
+	// 			opacity: '1',
+	// 			display:'block'
+	// 		});
+	// 		$(this).find('.flex-about-btn').css({
+	// 			top: '0'
+	// 		});
+	// 	}, function(e){
+	// 		if(e.currentTarget.className == "flex-slide home"){
+	// 			$(".about").css({
+	// 				filter: 'grayscale(0%)'
+	// 			});
+	// 			$(".contact").css({
+	// 				filter: 'grayscale(0%)'
+	// 		  });
+	// 		}
+	// 		else if(e.currentTarget.className == "flex-slide about"){
+	// 			$(".home").css({
+	// 				filter: 'grayscale(0%)'
+	// 			});
+	// 			$(".contact").css({
+	// 				filter: 'grayscale(0%)'
+	// 			});
+	// 		}
+	// 		else{
+	// 			$(".about").css({
+	// 				filter: 'grayscale(0%)'
+	// 			});
+	// 			$(".home").css({
+	// 				filter: 'grayscale(0%)'
+	// 			});
+	// 		}
+	// 		$(this).find('.flex-about-btn').css({
+	// 			top: '60%'
+	// 		});
+	// 		$(this).find('.flex-about').css({
+	// 			opacity: '0',
+	// 			display:'none'
+	// 		});
+	// 	})
+	// });
 
 	/** Form donation module */
 
