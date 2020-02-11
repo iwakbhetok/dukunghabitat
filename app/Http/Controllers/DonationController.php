@@ -39,7 +39,7 @@ class DonationController extends Controller
     public function index($type)
     {
       $label = str_replace('-',' ',$type);
-      return view('client.form', compact('label', 'type'));
+      return view('client.form-campaign', compact('label', 'type'));
     }
 
     public function types($type)

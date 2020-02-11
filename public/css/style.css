@@ -714,6 +714,7 @@ textarea {
   font-size: 0.8rem;
   color: #00afd7;
   margin-top: -3px;
+  background: transparent;
 }
 .customNominalDesktop:focus{
   background-color: #00afd7;
@@ -741,6 +742,7 @@ textarea {
   border: 2px solid #00afd7;
   border-radius: 10px;
   font-size: 0.8rem;
+  background: transparent;
 }
 .inputName:focus{
   background-color: #00afd7;
@@ -763,6 +765,7 @@ textarea {
   border: 2px solid #00afd7;
   border-radius: 10px;
   font-size: 0.8rem;
+  background: transparent;
 }
 .inputEmail:focus{
   background-color: #00afd7;
@@ -874,10 +877,7 @@ textarea {
   text-align: center;
 }
 .how-building-water{
-  background-image: url('../img/bg-building-home-mobile.png');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: bottom;
+  
 }
 .how-building-water h3{
   color: #00afd7;
@@ -1468,4 +1468,39 @@ textarea {
 }
 .bottom-share .mail{
   background: #233b79;
+}
+.gif-campaign label{
+  color:#fff;
+  font-size: .875rem;
+}
+.gif-campaign input[type="text"]{
+  height: 44px;
+  padding:12px 20px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+#checkMessage{
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+}
+#messageText{
+  font-size: 0.8rem;
+  border-radius: 10px;
+  padding:20px 20px 20px 20px;
+  display: none;
+  height: 60px;
+}
+#messageTextMobile{
+  font-size: 0.8rem;
+  border-radius: 10px;
+  padding:20px 20px 20px 20px;
+  display: none;
+  border:none;
+}
+.label-campaign-gif{
+  color: #fff;
+}
+#senderMobile, #receiverMobile{
+  border-radius: 10px;
 }

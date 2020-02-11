@@ -60,17 +60,17 @@
                     <ul class="uk-slider-items uk-grid-match slider-mobile-detail-article" uk-height-viewport="offset-top: true; offset-bottom: 60" uk-grid>
                         <li class="uk-width-3-4">
                             <div class="uk-cover-container">
-                                <img src="{{ Voyager::image( voyager_image($slider->image_slide_1_on_detail_donation_page, 'cropped') ) }}" alt="" >
+                                <img src="" alt="" >
                             </div>
                         </li>
                         <li class="uk-width-3-4">
                             <div class="uk-cover-container">
-                                <img src="{{ Voyager::image( voyager_image($slider->image_slide_2_on_detail_donation_page, 'cropped') ) }}" alt="" >
+                                <img src="" alt="" >
                             </div>
                         </li>
                         <li class="uk-width-3-4 slide-3">
                             <div class="uk-cover-container">
-                                <img src="{{ Voyager::image( voyager_image($slider->image_slide_3_on_detail_donation_page, 'cropped') ) }}" alt="" >
+                                <img src="" alt="" >
                             </div>
                         </li>
                     </ul>
@@ -81,15 +81,24 @@
 
                 <div class='uk-container-expand uk-card-default uk-hidden@m'>
                     <div class='single-item'>
+                        @if($slider->image_slide_1_on_detail_donation_page)
                         <div>
                             <img src="{{ Voyager::image( voyager_image($slider->image_slide_1_on_detail_donation_page, 'cropped') ) }}" style="width:100%; height:auto;">
                         </div>
+                        @else
+                        @endif
+                        @if($slider->image_slide_2_on_detail_donation_page)
                         <div>
                             <img src="{{ Voyager::image( voyager_image($slider->image_slide_2_on_detail_donation_page, 'cropped') ) }}" style="width:100%; height:auto;">
                         </div>
+                        @else
+                        @endif
+                        @if($slider->image_slide_3_on_detail_donation_page)
                         <div>
                             <img src="{{ Voyager::image( voyager_image($slider->image_slide_3_on_detail_donation_page, 'cropped') ) }}" style="width:100%; height:auto;">
                         </div>
+                        @else
+                        @endif
                     </div>
                 </div>
                 <!-- END NEW -->
@@ -137,7 +146,7 @@
     </section>
     <div class="uk-container-expand uk-hidden@m" style="height: 12px;background-color:#e1e1e1;"></div>
 
-    <section class="how-building-water">
+    <section class="how-building-water" style="background-image: url('{{ Voyager::image( $slider->background_image_detail_page ) }}');background-repeat: no-repeat;background-size: 100%;background-position: bottom;">
         <div class="uk-container uk-padding">
             <div class="uk-container uk-text-center uk-visible@m">
                 <h3>Bagaimana donasi Anda dapat membantu?</h3>

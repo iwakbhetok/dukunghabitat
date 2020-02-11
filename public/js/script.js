@@ -117,113 +117,6 @@ function validateEmail(email) {
 		})
 	});
 
-	// $(".flex-slide").each(function(index, el){
-	// 	$(this).hover(function(e){
-	// 		console.log(index);
-	// 		console.log(el);
-	// 		if(index == "0"){
-	// 			$('.flex-slide').eq(1).css({
-	// 				filter: 'grayscale(100%)',
-	// 				"background-size":"cover",
-	// 				"background-repeat":"no-repeat"
-	// 		  });
-	// 		  $('.flex-slide').eq(2).css({
-	// 			filter: 'grayscale(100%)',
-	// 			"background-size":"cover",
-	// 			"background-repeat":"no-repeat"
-	// 	  });
-	// 		}
-	// 		else if(index == "1"){
-	// 			//
-	// 		}
-	// 		else if(index == "2"){
-	// 			//
-	// 		}
-	// 		else{
-	// 			//
-	// 		}
-	// 		if(e.currentTarget.className == "flex-slide home"){
-	// 			$(".about").css({
-	// 				  filter: 'grayscale(100%)',
-	// 				  "background-size":"cover",
-	// 				  "background-repeat":"no-repeat"
-	// 			});
-	// 			$(".contact").css({
-	// 				filter: 'grayscale(100%)',
-	// 				"background-size":"cover",
-	// 				"background-repeat":"no-repeat"
-	// 		  });
-	// 		}
-	// 		else if(e.currentTarget.className == "flex-slide about"){
-	// 			$(".home").css({
-	// 				filter: 'grayscale(100%)',
-	// 				"background-size":"cover",
-	// 				"background-repeat":"no-repeat"
-	// 			});
-	// 			$(".contact").css({
-	// 				filter: 'grayscale(100%)',
-	// 				"background-size":"cover",
-	// 				"background-repeat":"no-repeat"
-	// 			});
-	// 		}
-	// 		else{
-	// 			$(".about").css({
-	// 				filter: 'grayscale(100%)',
-	// 				"background-size":"cover",
-	// 				"background-repeat":"no-repeat"
-	// 			});
-	// 			$(".home").css({
-	// 				filter: 'grayscale(100%)',
-	// 				"background-size":"cover",
-	// 				"background-repeat":"no-repeat"
-	// 			});
-	// 		}
-	// 		$(this).find('.flex-title').css({
-	// 			transform: 'rotate(0deg)',
-	// 			top: '4%'
-	// 		});
-	// 		$(this).find('.flex-about').css({
-	// 			opacity: '1',
-	// 			display:'block'
-	// 		});
-	// 		$(this).find('.flex-about-btn').css({
-	// 			top: '0'
-	// 		});
-	// 	}, function(e){
-	// 		if(e.currentTarget.className == "flex-slide home"){
-	// 			$(".about").css({
-	// 				filter: 'grayscale(0%)'
-	// 			});
-	// 			$(".contact").css({
-	// 				filter: 'grayscale(0%)'
-	// 		  });
-	// 		}
-	// 		else if(e.currentTarget.className == "flex-slide about"){
-	// 			$(".home").css({
-	// 				filter: 'grayscale(0%)'
-	// 			});
-	// 			$(".contact").css({
-	// 				filter: 'grayscale(0%)'
-	// 			});
-	// 		}
-	// 		else{
-	// 			$(".about").css({
-	// 				filter: 'grayscale(0%)'
-	// 			});
-	// 			$(".home").css({
-	// 				filter: 'grayscale(0%)'
-	// 			});
-	// 		}
-	// 		$(this).find('.flex-about-btn').css({
-	// 			top: '60%'
-	// 		});
-	// 		$(this).find('.flex-about').css({
-	// 			opacity: '0',
-	// 			display:'none'
-	// 		});
-	// 	})
-	// });
-
 	/** Form donation module */
 
 	// read radio button nominal is check
@@ -240,7 +133,6 @@ function validateEmail(email) {
 	$(".donateBtnDesktop").click(function(){
 		if(!$('.radioDonationDesktop').is(':checked') && $(".customNominalDesktop").val().length === 0 ) {
 			$(".form-donation p").css({"color":"red"});
-			// $(".errorNotificationDesktop").removeAttr('hidden');
 			$(".radio-toolbar label").css({"border":"2px solid red"});
 			$("#customNominal_1").css({"border":"2px solid red"});
 			return false;
@@ -251,7 +143,6 @@ function validateEmail(email) {
 			$(".radioDonationDesktop").attr("disabled", true);
 			$("#customNominal_1").attr("disabled", true);
 			$(".form-donation p").css({"color":"#636363"});
-			// $(".errorNotificationDesktop").attr('hidden', true);
 			$('#form-identity').removeAttr('hidden');
 			return false;
 		 }
@@ -275,7 +166,23 @@ function validateEmail(email) {
 
 	$(".confirmBtnDesktop").click(function(){
 		var radioValue = $("input[name='radioDonationDesktop']:checked"). val();
-		if( $(".inputName").val().length === 0 || $(".inputName").val() === "" ){
+		if(!$('.radioDonationDesktop').is(':checked') && $(".customNominalDesktop").val().length === 0 ) {
+			$(".form-donation p").css({"color":"red"});
+			$(".radio-toolbar label").css({"border":"2px solid red"});
+			$("#customNominal_1").css({"border":"2px solid red"});
+			return false;
+		 }
+		 else if($('.radioDonationDesktop').is(':checked') && $(".customNominalDesktop").val().length != 0 ) {
+			$(this).attr('hidden', true);
+			$(".radio-toolbar label").css({"border":"2px solid #00afd7"});
+			$("#customNominal_1").css({"border":"2px solid #00afd7"});
+			$(".radioDonationDesktop").attr("disabled", true);
+			$("#customNominal_1").attr("disabled", true);
+			$(".form-donation p").css({"color":"#636363"});
+			$('#form-identity').removeAttr('hidden');
+			return false;
+		 }
+		else if( $(".inputName").val().length === 0 || $(".inputName").val() === "" ){
 			$(".inputName").css({"border":"2px solid red"});
 			$(".errorNameMessageDesktop").text("Harap isi nama lengkap anda di kolom");
 			$(".errorNameMessageDesktop").removeAttr('hidden');
@@ -409,6 +316,15 @@ function validateEmail(email) {
 		$(this).css({"border":"2px solid #00afd7"});
 		$(".errorEmailMessageMobile").attr('hidden', true);
 	});
+
+	$( "#checkMessage" ).click(function() {
+		$( "#messageText" ).slideToggle( "slow", function() {
+		});
+	  });
+	$( "#checkMessageMobile" ).click(function() {
+		$( "#messageTextMobile" ).slideToggle( "slow", function() {
+		});
+	  });
 
 
 	/* Search module */
