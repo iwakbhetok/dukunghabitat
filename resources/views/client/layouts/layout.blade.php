@@ -69,5 +69,6 @@
     <script defer src="{{ url('js/autocomplete.js') }}"></script>
     <script defer src="{{ url('js/script.js') }}"></script>
         @yield('pagespecificscripts')
+        @stack('scripts')
 </body>
 </html>

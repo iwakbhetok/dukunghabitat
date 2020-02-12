@@ -247,7 +247,7 @@
                                     </div>
                                     <div class="uk-padding uk-padding-remove-top" style="margin-top:10px;">
                                         <div class="uk-card">
-                                            <textarea name="messageText" id="messageTextMobile" cols="15" rows="4" placeholder="Karena hadiah coklat dan bunga sudah terlalu biasa untuk kamu yang selalu ada"></textarea>
+                                            <textarea name="messageTextMobile" id="messageTextMobile" cols="15" rows="4" placeholder="Karena hadiah coklat dan bunga sudah terlalu biasa untuk kamu yang selalu ada"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -444,6 +444,7 @@
         var optionNominal = $("input[name='radioDonationMobile']:checked"). val();
         var customNominal = $("#customNominal_2").val();
         var as_anonymous = ($("input[name='hideNameMobile']:checked").val() === 'on') ? 'true' :'false';
+        var checkMessageMobile = ($("input[name='checkMessageMobile']:checked").val() === 'on') ? 'true' :'false';
         if(optionNominal){
             var amt = optionNominal;
         }
@@ -452,6 +453,12 @@
         }
         else{
             var amt = 0.00;
+        }
+        if($('#messageTextMobile').val() != ""){
+            var messageTextMobile = $('#messageTextMobile').val()
+        }
+        else{
+            var messageText =$('#messageText').attr('placeholder');
         }
             // Kirim request ajax
             $.post("{{ route('donation.store') }}",
