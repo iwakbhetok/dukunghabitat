@@ -17,7 +17,7 @@
 @include('client.components.footer', ['desktop' => 'block', 'mobile' => 'block'])
 
 <div id="modal-media-image" class="uk-flex-top" uk-modal>
-    <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
+    <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical uk-modal-close">
         <button class="uk-modal-close-outside" type="button" uk-close></button>
         <img src="{{ asset('img/pop-up-banner.jpg') }}" alt="">
     </div>
