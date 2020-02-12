@@ -29,4 +29,8 @@ class FrontendController extends Controller
         ]);
         return response()->json(['success'=> true]);
     }
+    
+    public function campaign(){
+        
+    }
 }

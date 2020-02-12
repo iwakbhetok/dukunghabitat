@@ -24,6 +24,7 @@ Route::group(['prefix' => 'admin'], function () {
         })->name('voyager.dashboard');
        Route::get('/export/donations/all', '\App\Http\Controllers\Habitat\DonationsController@exportAll')->name('donations.export.all');
        Route::post('/export/donations/month', '\App\Http\Controllers\Habitat\DonationsController@exportByMonth')->name('donations.export.month');
+       Route::get('/campaign','FrontendController@campaign');
 });
 
 Route::group(['prefix' => 'payment'], function () {
