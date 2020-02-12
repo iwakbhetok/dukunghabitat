@@ -6,15 +6,15 @@
         <div class="clearfix container-fluid row info-donation">
             <div class="panel-body">
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                Total Donation Since February 14, 2020:
+                Total Donation since Live (February 14, 2020)
                 <h3><span>IDR</span> {{ number_format($grandTotal, 2) }}</h3>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                Total Donation {{ $labelLastMonth }}: 
+                Last Month Donation ({{ $labelLastMonth }}) 
                 <h3><span>IDR</span> {{ number_format($totalLastMonth, 2) }}</h3>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                Total Donation {{ $labelThisMonth }}: 
+                Current Month Donation ({{ $labelThisMonth }}) 
                 <h3><span>IDR</span> {{ number_format($totalThisMonth, 2) }}</h3>
                 </div>
             </div>

@@ -93,7 +93,7 @@ $url = urlencode($article->title .' - '.url()->current());
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="mailto:?subject={{ $article->title }}&amp;body=Check out this site {{ url($article->slug) }}" title="Share {{ $article->title }}">
+                                                <a href="mailto:?subject={{ $article->title }}&amp;body=Simak artikel berikut ini: {{ url($article->slug) }}" title="Share {{ $article->title }}">
                                                     <img src="{{ asset('img/mail-share-desktop.png') }}" alt="">   
                                                 </a>
                                             </li>

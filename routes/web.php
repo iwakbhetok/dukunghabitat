@@ -12,7 +12,7 @@ Route::group(['prefix' => 'admin'], function () {
             if(Auth::check()){
                 $date = \Carbon\Carbon::now();
                 $grandTotal = Donation::where(['status' => 'success'])->sum('amount');
-                $labelThisMonth = $date->format('F d, Y');
+                $labelThisMonth = $date->format('F Y');
                 $labelLastMonth = $date->subMonth()->format('F Y');
                 $prevmonth = date('m', strtotime('-1 months'));
                 $totalThisMonth = Donation::where(['status' => 'success'])->whereMonth('created_at', date('m'))->sum('amount');

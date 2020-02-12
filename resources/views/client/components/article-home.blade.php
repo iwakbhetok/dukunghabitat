@@ -50,7 +50,7 @@
                                                                     </a>
                                                                 </div>
                                                                 <div class="uk-card uk-margin-small-right">
-                                                                    <a href="mailto:?subject={{ $post->title }}&amp;body=Check out this site {{ url($post->slug) }}" title="Share {{ $post->title }}">
+                                                                    <a href="mailto:?subject={{ $post->title }}&amp;body=Simak artikel berikut ini: {{ url($post->slug) }}" title="Share {{ $post->title }}">
                                                                         <img data-src="{{ asset('img/mail-article-icon.png') }}" alt="" class="lazy">
                                                                     </a>
                                                                 </div>
