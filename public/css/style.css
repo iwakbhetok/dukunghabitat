@@ -1504,3 +1504,7 @@ textarea {
 #senderMobile, #receiverMobile{
   border-radius: 10px;
 }
+.share-gif-social img{
+  width: 48px;
+  padding:5px;
+}

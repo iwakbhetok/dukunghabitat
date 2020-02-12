@@ -8,6 +8,8 @@ use App\Slider;
 use Veritrans_Config;
 use Veritrans_Snap;
 use Veritrans_Notification;
+use App\GifCardCampaign;
+use Illuminate\Support\Str;
 
 class DonationController extends Controller
 {
@@ -38,8 +40,17 @@ class DonationController extends Controller
      */
     public function index($type)
     {
-      $label = str_replace('-',' ',$type);
-      return view('client.form-campaign', compact('label', 'type'));
+        $sliders = Slider::where('status', 'ENABLE')->get();
+        
+        foreach ($sliders as $slider) {
+            $tempSlugItem = slugify($slider->title. ' '. $slider->sub_title);
+            if($type == $tempSlugItem){
+                $label = str_replace('-',' ',$type);
+                return view('client.form-campaign', compact('label', 'type', 'slider'));
+            }
+        }
+    //   $label = str_replace('-',' ',$type);
+    //   return view('client.form-campaign', compact('label', 'type'));
     }
 
     public function types($type)
@@ -53,9 +64,6 @@ class DonationController extends Controller
                 $label = str_replace('-',' ',$type);
                 return view('client.donation-type.detail_donation_type', compact('label', 'type', 'slider'));
             }
-            // else{
-            //     return abort(404);
-            // }   
         }
         return abort(404);
     }
@@ -68,6 +76,7 @@ class DonationController extends Controller
     public function submitDonation()
     {
         \DB::transaction(function(){
+            $slider = Slider::find($this->request->slideId);
             // Save donasi ke database
             $donation = Donation::create([
                 'donor_name' => $this->request->donor_name,
@@ -104,6 +113,19 @@ class DonationController extends Controller
             }else{
               $donate->delete(); 
             }
+
+            // check if data campaign is exist
+            if($this->request->sender != ""){
+                $message = ($this->request->messageText != "") ? $this->request->messageText : $slider->default_text_for_gif ;
+                // save data gif campaign
+                GifCardCampaign::create([
+                    'sender'    => $this->request->sender,
+                    'receiver'  => $this->request->receiver,
+                    'message'   => $message,
+                    'uuid'      => Str::random(32)
+                ]);
+            }
+            
  
             // Beri response snap token
             $this->response['snap_token'] = $snapToken;

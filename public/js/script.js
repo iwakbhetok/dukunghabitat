@@ -12,7 +12,6 @@ $( window ).on("load",function() {
 		infinite: true,
 	});
 	$('.slick-prev, .slick-next').hide();
-	
 
 });
 

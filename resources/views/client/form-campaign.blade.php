@@ -11,6 +11,7 @@
                 <form method="POST" onsubmit="return submitFormDesktop();">
                 <div class="uk-container uk-container-small form-donation uk-padding uk-text-center">
                     <input id="typeDonationDesktop" name="typeDonationDesktop" type="hidden" value="{{ $type }}">
+                    <input id="sliderId" name="sliderId" type="hidden" value="{{ $slider->id }}">
                     <div class="title-form">
                         <h2 class="uk-text-center label-donation uk-text-uppercase">DONASI {{ $label }} </h2>
                         <p>Pilih nominal donasi atau masukkan nominal lain sesuai keinginan.</p>
@@ -81,7 +82,7 @@
                         </div>
                         <div class="uk-card uk-padding uk-text-left">
                             <div class="uk-form-controls">
-                                <textarea name="messageText" id="messageText" cols="15" rows="10" placeholder="Karena hadiah coklat dan bunga sudah terlalu biasa untuk kamu yang selalu ada"></textarea>
+                                <textarea name="messageText" id="messageText" cols="15" rows="10" placeholder="{{ $slider->default_text_for_gif }}"></textarea>
                             </div>
                         </div>
                     </div>
@@ -378,6 +379,7 @@
         var optionNominal = $("input[name='radioDonationDesktop']:checked"). val();
         var customNominal = $("#customNominal_1").val();
         var as_anonymous = ($("input[name='hideNameDesktop']:checked").val() === 'on') ? 'true' :'false';
+        var checkMessage = ($("input[name='checkMessage']:checked").val() === 'on') ? 'true' :'false';
         if(optionNominal){
             var amt = optionNominal;
         }
@@ -386,6 +388,12 @@
         }
         else{
             var amt = 0.00;
+        }
+        if($('#messageText').val() != ""){
+            var messageText = $('#messageText').val()
+        }
+        else{
+            var messageText =$('#messageText').attr('placeholder');
         }
         // Kirim request ajax
         $.post("{{ route('donation.store') }}",
@@ -397,6 +405,11 @@
             donor_name: $('.inputName').val(),
             donor_email: $('.inputEmail').val(),
             as_anonymous: as_anonymous,
+            sender: $('#sender').val(),
+            receiver: $('#receiver').val(),
+            checkMessage: checkMessage,
+            messageText: messageText,
+            slideId: $("#sliderId").val(),
         },
         function (data, status) {
             snap.pay(data.snap_token, {
