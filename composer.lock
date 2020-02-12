@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "51794a3321731ae4191276b7c35a557f",
+    "content-hash": "95249a5de60e9d6f441fe39dc8a46dcc",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -5152,7 +5152,7 @@
         },
         {
             "name": "tightenco/collect",
-            "version": "v6.14.0",
+            "version": "v6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tightenco/collect.git",

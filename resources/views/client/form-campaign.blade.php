@@ -425,6 +425,9 @@
                 onError: function (result) {
                         window.location.href = "{{ route('donation.error')}}";
                         
+                },
+                onClose: function(){
+                    location.reload();
                 }
             });
         });
@@ -476,6 +479,9 @@
                     onError: function (result) {
                         window.location.href = "{{ route('donation.error')}}";
                         
+                    },
+                    onClose: function(){
+                        location.reload();
                     }
                 });
             });
