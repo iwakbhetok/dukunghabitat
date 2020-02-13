@@ -6,7 +6,7 @@
 @section('content')
 
 @php
-$url = urlencode('Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat - '. url('campaign/'. $uuid));
+$url = urlencode('Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat. Cek kadonya sekarang: '. url('campaign/'. $uuid));
 @endphp
 
 <section style="background-image: url({{ asset('img/bg-thank-you.jpg') }});background-size:center;height:1000px;">
@@ -22,20 +22,23 @@ $url = urlencode('Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, ka
                 <a href="https://wa.me/?text={{ $url }}" target="_blank">
                     <img src="{{ asset('img/wa-share-desktop.png') }}" alt="">
                 </a>
-                <a href="https://twitter.com/share?url={{ url('campaign/'. $uuid) }}&via=HabitatID&text=Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat"
+                <a href="https://twitter.com/share?url={{ url('campaign/'. $uuid) }}&via=HabitatID&text=Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat. Cek kadonya sekarang:"
     onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
     target="_blank" title="Share on Twitter">
                     <img src="{{ asset('img/tw-share-desktop.png') }}" alt="">
                 </a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('campaign/'. $uuid) }}&t=Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat"
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('campaign/'. $uuid) }}&t=Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat. Cek kadonya sekarang:"
     onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
     target="_blank" title="Share on Facebook">
                     <img src="{{ asset('img/fb-share-desktop.png') }}" alt="">
                 </a>
-                <a href="mailto:?subject=Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat&amp;body=Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat berikut ini: {{ url('campaign/'. $uuid) }}" title="Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat">
+                <a href="mailto:?subject=Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat. Cek kadonya sekarang&amp;body=Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat. Cek kadonya sekarang: {{ url('campaign/'. $uuid) }}" title="Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat. Cek kadonya sekarang">
                     <img src="{{ asset('img/mail-share-desktop.png') }}" alt="">
                 </a>
             </div>
+            <p class="uk-text-center">
+                <a class="uk-button uk-modal-close closeBtn uk-text-capitalize" style="font-size: 1rem;color:#fff;background:#0099bc;" href="https://habitatindonesia.org/dukung-habitat/" target="_blank">Tentang Campaign</a>
+            </p>
             <p class="uk-text-center">
                 <a class="uk-button uk-modal-close closeBtn uk-text-capitalize" style="font-size: 1rem;color:#fff;background:#0099bc;" href="{{ Voyager::image( $uuid.'/card.gif' ) }}" download>Download GIF</a>
             </p>
