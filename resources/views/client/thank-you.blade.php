@@ -37,10 +37,10 @@ $url = urlencode('Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, ka
                 </a>
             </div>
             <p class="uk-text-center">
-                <a class="uk-button uk-modal-close closeBtn uk-text-capitalize" style="font-size: 1rem;color:#fff;background:#0099bc;" href="https://habitatindonesia.org/dukung-habitat/" target="_blank">Tentang Campaign</a>
+                <a class="uk-button uk-modal-close closeBtn uk-text-capitalize" style="font-size: 1rem;color:#fff;background:#0099bc;width:250px;" href="{{ Voyager::image( $uuid.'/card.gif' ) }}" download>Download GIF</a>
             </p>
             <p class="uk-text-center">
-                <a class="uk-button uk-modal-close closeBtn uk-text-capitalize" style="font-size: 1rem;color:#fff;background:#0099bc;" href="{{ Voyager::image( $uuid.'/card.gif' ) }}" download>Download GIF</a>
+                <a class="uk-button uk-modal-close closeBtn uk-text-capitalize" style="font-size: 1rem;color:#0099bc;border: solid 1px #0099bc;width:250px;" href="https://habitatindonesia.org/dukung-habitat/" target="_blank">Tentang Campaign</a>
             </p>
             <div class="uk-overlay uk-visible@m"></div>
             <div class="uk-overlay uk-hidden@s"></div>
