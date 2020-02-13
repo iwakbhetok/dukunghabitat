@@ -7,12 +7,12 @@
 
 <meta property="og:title" content="Selamat Hari Valentine!">
 <meta property="og:description" content="Seseorang telah melakukan donasi atas nama Kamu. Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat berupa kartu valentine">
-<meta property="og:image" content="{{ asset('img/fb-share-campaign.jpeg') }}">
+<meta property="og:image" content="{{ asset('img/fb-share-campaign.jpg') }}">
 <meta property="og:url" content="{{ url('campaign/'. $uuid) }}">
 
 <meta name="twitter:title" content="Selamat Hari Valentine!">
 <meta name="twitter:description" content="Seseorang telah melakukan donasi atas nama Kamu. Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat berupa kartu valentine">
-<meta name="twitter:image" content="{{ asset('img/fb-share-campaign.jpeg') }}">
+<meta name="twitter:image" content="{{ asset('img/fb-share-campaign.jpg') }}">
 <meta name="twitter:card" content="summary">
 @endpush
 
