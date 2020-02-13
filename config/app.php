@@ -161,7 +161,6 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Pomirleanu\GifCreate\GifCreateServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -176,7 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        
         Intervention\Image\ImageServiceProvider::class,
+        Pomirleanu\GifCreate\GifCreateServiceProvider::class,
 
     ],
 

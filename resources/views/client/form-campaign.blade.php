@@ -100,43 +100,6 @@
                 </form>
                 <br>
                 
-                <!-- <div class="uk-flex uk-flex-center">
-                    <div class="uk-card uk-card-body">
-                        
-                    <form method="POST" onsubmit="return submitFormDesktop();">
-                        <div class="uk-container-small form-donation uk-padding-large uk-text-center">
-                            
-                            <div id="donateBtnDesktop">
-                                <br>
-                                <a class="uk-button uk-text-uppercase donateBtnDesktop btnZoomHover" readonly="readonly">KONFIRMASI NOMINAL</a>
-                            </div>
-                            <div id="form-identity" class="uk-height-small">
-                                    
-                                    
-                                    
-                            </div>
-                        </div>
-                        <div class="uk-container uk-container-small uk-text-center" style="background-image:url('{{ asset('img/bg-message-gif.jpg') }}');background-size: cover;background-position: top;width:auto;height:700px;">
-                            <div class="uk-overlay"></div>
-                            <div class="uk-overlay"></div>
-                            <div class="uk-overlay"></div>
-                            <div class="uk-overlay"></div>
-                            <div class="uk-overlay uk-visible@m"></div>
-                            <div class="uk-overlay uk-visible@m"></div>
-                            test
-                        </div>
-                        <div class="uk-container uk-container-small form-donation uk-text-center">
-                            <br>
-                                <button class="uk-button uk-text-uppercase uk-margin confirmBtnDesktop btnZoomHover">konfirmasi bayar</button>
-                                <img class="loading-icon" src="{{ asset('img/loading.gif') }}" alt="" hidden>
-                                
-                                <br>
-                        </div>
-                    </form>
-                        
-                    </div>
-                </div> -->
-                
             </div>
 
             <!-- form mobile -->
@@ -144,6 +107,7 @@
                 <div class="uk-flex uk-flex-center">
                     <div class="uk-card">
                     <form method="POST" onsubmit="return submitFormMobile();">
+                        <input id="sliderIdMobile" name="sliderIdMobile" type="hidden" value="{{ $slider->id }}">
                             <input id="typeDonationMobile" name="typeDonationMobile" type="hidden" value="{{ $type }}">
                             <div class="uk-container-small form-donation-mobile">
                             <h2 class="uk-text-center label-donation uk-text-bold uk-text-uppercase">DONASI <br> {{ $label }}</h2>
@@ -374,7 +338,8 @@
 		headers: {
 			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			}
-		});
+        });
+
         var amt = 0;
         var optionNominal = $("input[name='radioDonationDesktop']:checked"). val();
         var customNominal = $("#customNominal_1").val();
@@ -415,7 +380,27 @@
             snap.pay(data.snap_token, {
                 // Optional
                 onSuccess: function (result) {
-                    window.location.href = "{{ route('donation.finish')}}";
+                    $.post("{{ route('generate.gif') }}",
+                    {
+                        _method: 'POST',
+                        _token: '{{ csrf_token() }}',
+                        donation_id: data.donation_id,
+                        sender: data.sender,
+                        receiver: data.receiver,
+                        message: data.message,
+                        slider_id: data.slider_id
+                    }, function(data, status){
+                        if(status == "success"){
+                            var uuid = data.uuid;
+                            var url = '{{ route("donation.finish", ":uuid") }}';
+                            url = url.replace(':uuid',uuid);
+                            window.location.href = url;
+                        }
+                        else{
+                            window.location.href = "{{ route('donation.error')}}";
+                        }
+                    });
+                    
                 },
                 // Optional
                 onPending: function (result) {
@@ -458,7 +443,7 @@
             var messageTextMobile = $('#messageTextMobile').val()
         }
         else{
-            var messageText =$('#messageText').attr('placeholder');
+            var messageTextMobile =$('#messageTextMobile').attr('placeholder');
         }
             // Kirim request ajax
             $.post("{{ route('donation.store') }}",
@@ -470,17 +455,40 @@
                 donor_name: $('.inputNameMobile').val(),
                 donor_email: $('.inputEmailMobile').val(),
                 as_anonymous: as_anonymous,
+                sender: $('#senderMobile').val(),
+                receiver: $('#receiverMobile').val(),
+                checkMessage: checkMessageMobile,
+                messageText: messageTextMobile,
+                slideId: $("#sliderIdMobile").val(),
             },
             function (data, status) {
                 snap.pay(data.snap_token, {
                     // Optional
                     onSuccess: function (result) {
-                        window.location.href = "{{ route('donation.finish')}}";
+                        $.post("{{ route('generate.gif') }}",
+                        {
+                            _method: 'POST',
+                            _token: '{{ csrf_token() }}',
+                            donation_id: data.donation_id,
+                            sender: data.sender,
+                            receiver: data.receiver,
+                            message: data.message,
+                            slider_id: data.slider_id
+                        }, function(data, status){
+                            if(status == "success"){
+                                var uuid = data.uuid;
+                                var url = '{{ route("donation.finish", ":uuid") }}';
+                                url = url.replace(':uuid',uuid);
+                                window.location.href = url;
+                            }
+                            else{
+                                window.location.href = "{{ route('donation.error')}}";
+                            }
+                        });
                     },
                     // Optional
                     onPending: function (result) {
                         window.location.href = "{{ route('donation.unfinish')}}";
-                        
                     },
                     // Optional
                     onError: function (result) {
