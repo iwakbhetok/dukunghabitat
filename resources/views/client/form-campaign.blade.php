@@ -380,26 +380,32 @@
             snap.pay(data.snap_token, {
                 // Optional
                 onSuccess: function (result) {
-                    $.post("{{ route('generate.gif') }}",
-                    {
-                        _method: 'POST',
-                        _token: '{{ csrf_token() }}',
-                        donation_id: data.donation_id,
-                        sender: data.sender,
-                        receiver: data.receiver,
-                        message: data.message,
-                        slider_id: data.slider_id
-                    }, function(data, status){
-                        if(status == "success"){
-                            var uuid = data.uuid;
-                            var url = '{{ route("donation.finish", ":uuid") }}';
-                            url = url.replace(':uuid',uuid);
-                            window.location.href = url;
-                        }
-                        else{
-                            window.location.href = "{{ route('donation.error')}}";
-                        }
-                    });
+                    var uuid = data.uuid;
+                    var slider_id = data.slider_id;
+                    var base_url = window.location.origin;
+                    var url = base_url + '/' + slider_id + '/' + uuid;
+                    
+                    window.location.href = url;
+                    // $.post("{{ route('generate.gif') }}",
+                    // {
+                    //     _method: 'POST',
+                    //     _token: '{{ csrf_token() }}',
+                    //     donation_id: data.donation_id,
+                    //     sender: data.sender,
+                    //     receiver: data.receiver,
+                    //     message: data.message,
+                    //     slider_id: data.slider_id
+                    // }, function(data, status){
+                    //     if(status == "success"){
+                    //         var uuid = data.uuid;
+                    //         var url = '{{ route("donation.finish", ":uuid") }}';
+                    //         url = url.replace(':uuid',uuid);
+                    //         window.location.href = url;
+                    //     }
+                    //     else{
+                    //         window.location.href = "{{ route('donation.error')}}";
+                    //     }
+                    // });
                     
                 },
                 // Optional
@@ -465,26 +471,32 @@
                 snap.pay(data.snap_token, {
                     // Optional
                     onSuccess: function (result) {
-                        $.post("{{ route('generate.gif') }}",
-                        {
-                            _method: 'POST',
-                            _token: '{{ csrf_token() }}',
-                            donation_id: data.donation_id,
-                            sender: data.sender,
-                            receiver: data.receiver,
-                            message: data.message,
-                            slider_id: data.slider_id
-                        }, function(data, status){
-                            if(status == "success"){
-                                var uuid = data.uuid;
-                                var url = '{{ route("donation.finish", ":uuid") }}';
-                                url = url.replace(':uuid',uuid);
-                                window.location.href = url;
-                            }
-                            else{
-                                window.location.href = "{{ route('donation.error')}}";
-                            }
-                        });
+                        var uuid = data.uuid;
+                        var slider_id = data.slider_id;
+                        var base_url = window.location.origin;
+                        var url = base_url + '/' + slider_id + '/' + uuid;
+                        
+                        window.location.href = url;
+                        // $.post("{{ route('generate.gif') }}",
+                        // {
+                        //     _method: 'POST',
+                        //     _token: '{{ csrf_token() }}',
+                        //     donation_id: data.donation_id,
+                        //     sender: data.sender,
+                        //     receiver: data.receiver,
+                        //     message: data.message,
+                        //     slider_id: data.slider_id
+                        // }, function(data, status){
+                        //     if(status == "success"){
+                        //         var uuid = data.uuid;
+                        //         var url = '{{ route("donation.finish", ":uuid") }}';
+                        //         url = url.replace(':uuid',uuid);
+                        //         window.location.href = url;
+                        //     }
+                        //     else{
+                        //         window.location.href = "{{ route('donation.error')}}";
+                        //     }
+                        // });
                     },
                     // Optional
                     onPending: function (result) {

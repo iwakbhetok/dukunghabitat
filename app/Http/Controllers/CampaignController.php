@@ -12,20 +12,26 @@ use Pomirleanu\GifCreate;
 class CampaignController extends Controller
 {
 
-    public function process(Request $request)
+    public function process($slider_id = null, $uuid = null)
     {
-        $template = $request->input('slider_id');
+        if($slider_id == ""){
+            $uuid = '123456';
+            return view('client.thank-you', compact('uuid'));
+        }
+        $template = $slider_id;
+        $campaign = Campaign::where('uuid', $uuid)->first();
 
         $totalFrames = [
             1 => 100,
             2 => 57,
             3 => 57,
         ];
-        $dir = Str::random();
+        // $dir = Str::random();
+        $dir = $uuid;
         Storage::makeDirectory($dir);
 
         $pengirim = [
-            'text'  => $request->input('sender'),
+            'text'  => ucfirst($campaign->sender),
             'x'     => 235,
             'y'     => 415,
             'size'  => 14,
@@ -33,7 +39,7 @@ class CampaignController extends Controller
             'color' => '#ca4d4e',
         ];
         $penerima = [
-            'text'  => $request->input('receiver'),
+            'text'  => ucfirst($campaign->receiver),
             'x'     => 86,
             'y'     => 62,
             'size'  => 14,
@@ -41,7 +47,7 @@ class CampaignController extends Controller
             'color' => '#ca4d4e',
         ];
         $pesan = [
-            'text'  => $request->input('message'),
+            'text'  => $campaign->message,
             'x'     => 48,
             'y'     => 100,
             'size'  => 13.5,
@@ -65,19 +71,11 @@ class CampaignController extends Controller
         $penerima = $penerima['text'];
         $pesan = $pesan['text'];
         $gifUrl = asset('storage/' . $dir . '/card.gif');
+        return view('client.thank-you', compact('uuid'));
 
-        // save data gif campaign
-        Campaign::create([
-            'donation_id'=> $request->input('donation_id'),
-            'sender'    => $request->input('sender'),
-            'receiver'  => $request->input('receiver'),
-            'message'   => $pesan,
-            'uuid'      => $dir,
-        ]);
-
-        $this->response['url'] = $gifUrl;
-        $this->response['uuid'] = $dir;
-        return response()->json($this->response);
+        // $this->response['url'] = $gifUrl;
+        // $this->response['uuid'] = $dir;
+        // return response()->json($this->response);
         // return view('welcome', compact('pengirim', 'penerima', 'pesan', 'template', 'gifUrl'));
     }
 

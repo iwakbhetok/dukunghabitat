@@ -30,10 +30,13 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::group(['prefix' => 'payment'], function () {
     Route::post('/process', 'DonationController@submitDonation')->name('donation.store');
-    Route::get('/finish/{uuid?}', function($uuid){
-        // Campaign::where(['uuid' => $uuid])->get();
-        return view('client.thank-you', compact('uuid'));
-    })->name('donation.finish');
+    // Route::get('/finish/{slider_id?}/{uuid?}', function($slider_id, $uuid){
+    //     $campaign = Campaign::where('uuid', $uuid)->first();
+    //     return view('client.thank-you', compact('uuid', 'campaign'));
+    // })->name('donation.finish');
+
+    Route::get('/finish/{slider_id?}/{uuid?}', 'CampaignController@process')->name('donation.finish');
+
     Route::get('/unfinish', function(){
         return view('client.pending');
     })->name('donation.unfinish');

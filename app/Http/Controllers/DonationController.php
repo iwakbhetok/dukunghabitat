@@ -9,6 +9,7 @@ use Veritrans_Config;
 use Veritrans_Snap;
 use Veritrans_Notification;
 use Illuminate\Support\Str;
+use App\Campaign;
 
 class DonationController extends Controller
 {
@@ -116,12 +117,22 @@ class DonationController extends Controller
             // check if data campaign is exist
             if($this->request->sender != ""){
                 $message = ($this->request->messageText != "") ? $this->request->messageText : $slider->default_text_for_gif ;
+                $uuid = Str::random();
+
+                // save data gif campaign
+                Campaign::create([
+                    'donation_id'=> $donation->id,
+                    'sender'    => $this->request->sender,
+                    'receiver'  => $this->request->receiver,
+                    'message'   => $message,
+                    'uuid'      => $uuid,
+                ]);
                 
-                $this->response['donation_id'] = $donation->id;
-                $this->response['sender'] = $this->request->sender;
-                $this->response['receiver'] = $this->request->receiver;
-                $this->response['message'] = $message;
+                $this->response['uuid'] = $uuid;
                 $this->response['slider_id'] = $this->request->slideId;
+                // $this->response['sender'] = $this->request->sender;
+                // $this->response['receiver'] = $this->request->receiver;
+                // $this->response['message'] = $message;
             }
 
             // Beri response snap token
