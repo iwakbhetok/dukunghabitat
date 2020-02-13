@@ -211,7 +211,7 @@
                                     </div>
                                     <div class="uk-padding uk-padding-remove-top" style="margin-top:10px;">
                                         <div class="uk-card">
-                                            <textarea name="messageTextMobile" id="messageTextMobile" cols="15" rows="4" placeholder="Karena hadiah coklat dan bunga sudah terlalu biasa untuk kamu yang selalu ada"></textarea>
+                                            <textarea name="messageTextMobile" id="messageTextMobile" cols="15" rows="4" placeholder="{{ $slider->default_text_for_gif }}"></textarea>
                                         </div>
                                     </div>
                                 </div>
