@@ -1,7 +1,8 @@
 
 @extends('client.layouts.layout')
 
-@section('title',  'Campaign Gif')
+@section('title',  'Selamat Hari Valentine!')
+
 
 @section('content')
 
@@ -9,9 +10,9 @@
     <div class="uk-container-expand">
         <br>
         <div class="uk-container uk-container-small uk-padding" style="background:rgba(255,255,255, 0.85);border-radius:10px;">
-            <h1 class="uk-text-center uk-padding title-modal uk-padding-remove-bottom">Terima Kasih!</h1>
-            <h2 class="uk-text-center uk-visible@s" style="font-size: 1.5rem;">Donasi Anda telah turut berpartisipasi dalam kegiatan membantu orang lain memiliki kualitas hidup yang lebih layak.</h2>
-            <h4 class="uk-text-center uk-padding-bottom uk-hidden@s" style="font-size: 1rem;">Donasi Anda telah turut berpartisipasi dalam kegiatan membantu orang lain memiliki kualitas hidup yang lebih layak.</h4>
+            <h1 class="uk-text-center uk-padding title-modal uk-padding-remove-bottom">Selamat Hari Valentine!</h1>
+            <h2 class="uk-text-center uk-visible@s" style="font-size: 1.5rem;">Seseorang telah melakukan donasi atas nama Kamu. Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat berupa kartu valentine berikut ini:</h2>
+            <h4 class="uk-text-center uk-padding-bottom uk-hidden@s" style="font-size: 1rem;">Seseorang telah melakukan donasi atas nama Kamu. Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat berupa kartu valentine berikut ini:</h4>
             <img data-src="{{ Voyager::image( $uuid.'/card.gif' ) }}" style="display:block;margin-left:auto;margin-right:auto;" class="lazy">
             <br>
             <p class="uk-text-center">

@@ -142,11 +142,11 @@
         </div>
 
         <div class="uk-hidden@m">
-            <div class="uk-grid-collapse uk-child-width-expand@s" uk-grid>
+            <div class="uk-grid-collapse uk-child-width-expand@m" uk-grid>
                 @foreach($sliders as $slider)
                 <div>
                     <div class="">
-                        <div class="uk-background-cover uk-height-medium uk-width-large" style="background-image: url({{ Voyager::image( $slider->background_image_mobile ) }});height:190px;width:100%;background-repeat:no-repeat;background-size:cover;">
+                        <div class="uk-background-cover uk-height-medium uk-width-large slider-banner" style="background-image: url({{ Voyager::image( $slider->background_image_mobile ) }});width:100%;background-repeat:no-repeat;background-size:cover;">
                             <div class="label-slide-mobile uk-text-right">
                                 <h2>{{ $slider->title }}</h2><span>{{ $slider->sub_title }}</span>
                             </div>

@@ -89,7 +89,7 @@
                 </div>
                 <div class="uk-container uk-container-small uk-padding form-donation uk-text-center">
                     <div class="uk-padding uk-padding-remove-top uk-padding-remove-bottom">
-                        <button class="uk-button uk-text-uppercase confirmBtnDesktop btnZoomHover">konfirmasi bayar</button>
+                        <button class="uk-button uk-text-uppercase confirmBtnDesktop btnZoomHover">konfirmasi donasi</button>
                         <img class="loading-icon" src="{{ asset('img/loading.gif') }}" alt="" hidden>
                     </div>
                     <div class="uk-padding-small">
@@ -219,7 +219,7 @@
 
                             <div class="uk-card-body">
                                 <div class="uk-padding confirmContainer uk-padding-remove-left uk-padding-remove-right uk-padding-remove-top">
-                                    <button class="uk-button uk-width-1-1 uk-text-uppercase confirmBtnMobile btnZoomHover">konfirmasi bayar</button>
+                                    <button class="uk-button uk-width-1-1 uk-text-uppercase confirmBtnMobile btnZoomHover">konfirmasi donasi</button>
                                     <img class="loading-icon" src="{{ asset('img/loading.gif') }}" alt="" hidden>
                                 </div>
                             </div>

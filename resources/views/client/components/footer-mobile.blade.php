@@ -52,6 +52,9 @@
                     <div class="uk-card uk-margin-left">
                         <a href="http://www.habitatindonesia.org/" target="_blank" class="uk-text-uppercase">Tentang kami</a>
                     </div>
+                    <div class="uk-card uk-margin-left">
+                        <a href="mailto:{{ Voyager::setting('site.email') }}" target="_blank" class="uk-text-uppercase">Hubungi</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,7 +65,7 @@
                 </div>
                 <div class="uk-text-center">
                     <a href="https://www.iprospect.com/en/id/" target="_blank">
-                        <img src="{{ asset('img/logo-iprospect-white.png') }}" alt="" style="width:30%;margin-top:10px;">
+                        <img src="{{ asset('img/logo-iprospect-white.png') }}" alt="" style="margin-top:10px;" class="logo-iprospect">
                     </a>
                     <a href="https://www.dentsuaegisnetwork.com" target="_blank">
                         <img src="{{ asset('img/logo-dan-mobile.png') }}" alt="" style="margin-left:10px;margin-top:15px;">

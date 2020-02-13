@@ -42,7 +42,7 @@
         color: #707070;
     }
     .bg-article-home{
-        height:16vh;
+        height:32vh;
     }
     .customNominalMobile{
         padding: 15px 5px;
@@ -115,5 +115,8 @@
         z-index: -1;
         height: 41vh;
         width: 81vw;
+      }
+      .logo-iprospect{
+        width: 18%;
       }
 }

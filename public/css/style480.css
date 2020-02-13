@@ -108,4 +108,7 @@
   .bg-nominal-mobile span{
     font-size: .8rem;
   }
+  .slider-banner{
+    height: 190px;
+  }
 }

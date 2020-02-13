@@ -3,6 +3,19 @@
 
 @section('title',  'Terimakasih')
 
+@push('meta')
+
+<meta property="og:title" content="Selamat Hari Valentine!">
+<meta property="og:description" content="Seseorang telah melakukan donasi atas nama Kamu. Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat berupa kartu valentine">
+<meta property="og:image" content="{{ asset('img/fb-share-campaign.jpeg') }}">
+<meta property="og:url" content="{{ url('campaign/'. $uuid) }}">
+
+<meta name="twitter:title" content="Selamat Hari Valentine!">
+<meta name="twitter:description" content="Seseorang telah melakukan donasi atas nama Kamu. Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat berupa kartu valentine">
+<meta name="twitter:image" content="{{ asset('img/fb-share-campaign.jpeg') }}">
+<meta name="twitter:card" content="summary">
+@endpush
+
 @section('content')
 
 @php
@@ -22,17 +35,17 @@ $url = urlencode('Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, ka
                 <a href="https://wa.me/?text={{ $url }}" target="_blank">
                     <img src="{{ asset('img/wa-share-desktop.png') }}" alt="">
                 </a>
-                <a href="https://twitter.com/share?url={{ url('campaign/'. $uuid) }}&via=HabitatID&text=Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat. Cek kadonya sekarang:"
+                <a href="https://twitter.com/share?url={{ url('campaign/'. $uuid) }}&via=HabitatID&text=#KadoCintaHabitat paling spesial untuk kamu yang tersayang:"
     onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
     target="_blank" title="Share on Twitter">
                     <img src="{{ asset('img/tw-share-desktop.png') }}" alt="">
                 </a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('campaign/'. $uuid) }}&t=Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat. Cek kadonya sekarang:"
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('campaign/'. $uuid) }}&t=#KadoCintaHabitat paling spesial untuk kamu yang tersayang:"
     onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
     target="_blank" title="Share on Facebook">
                     <img src="{{ asset('img/fb-share-desktop.png') }}" alt="">
                 </a>
-                <a href="mailto:?subject=Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat. Cek kadonya sekarang&amp;body=Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat. Cek kadonya sekarang: {{ url('campaign/'. $uuid) }}" title="Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat. Cek kadonya sekarang">
+                <a href="mailto:?subject=#KadoCintaHabitat Untuk Kamu Sudah Tiba!&amp;body=Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat. Cek kadonya sekarang: {{ url('campaign/'. $uuid) }}" title="Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, kamu berhak mendapatkan #KadoCintaHabitat. Cek kadonya sekarang">
                     <img src="{{ asset('img/mail-share-desktop.png') }}" alt="">
                 </a>
             </div>

@@ -144,7 +144,7 @@
                                         <a href="{{ $post->slug }}">
                                             <div class="uk-card article-item">
                                                 <div class="uk-card-media-top">
-                                                    <img data-src="{{ Voyager::image( voyager_image($post->image, 'small') ) }}" alt="" class="lazy">
+                                                    <img data-src="{{ Voyager::image( voyager_image($post->image, 'cropped') ) }}" alt="" class="lazy">
                                                 </div>
                                                 <div class="article-content-mobile">
                                                     <h3 class="uk-card-title title-article-mobile uk-margin-remove-top">{{ \Illuminate\Support\Str::limit($post->title, 42, $end='...') }}</h3>
