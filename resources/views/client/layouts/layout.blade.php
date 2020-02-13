@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ Voyager::setting('site.title') }} - @yield('title')</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <meta name="description" content="{{ Voyager::setting('site.description') }}">
+    
     @stack('meta')
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono|Roboto+Slab&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
