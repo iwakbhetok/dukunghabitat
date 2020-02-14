@@ -71,9 +71,8 @@ class CampaignController extends Controller
         $penerima = $penerima['text'];
         $pesan = $pesan['text'];
         $gifUrl = asset('storage/' . $dir . '/card.gif');
-        return view('client.thank-you', compact('uuid'));
 
-        // $this->response['url'] = $gifUrl;
+        $this->response['url'] = $gifUrl;
         // $this->response['uuid'] = $dir;
         // return response()->json($this->response);
         // return view('welcome', compact('pengirim', 'penerima', 'pesan', 'template', 'gifUrl'));

@@ -31,16 +31,22 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::group(['prefix' => 'payment'], function () {
     Route::post('/process', 'DonationController@submitDonation')->name('donation.store');
-    // Route::get('/finish/{slider_id?}/{uuid?}', function($slider_id, $uuid){
-    //     $campaign = Campaign::where('uuid', $uuid)->first();
-    //     return view('client.thank-you', compact('uuid', 'campaign'));
-    // })->name('donation.finish');
+    Route::get('/finish/{slider_id?}/{uuid?}', function($slider_id, $uuid){
+        $campaign = Campaign::where('uuid', $uuid)->first();
+        return view('client.thank-you', compact('uuid', 'slider_id', 'campaign'));
+    })->name('donation.finish');
 
-    Route::get('/finish/{slider_id?}/{uuid?}', 'CampaignController@process')->name('donation.finish');
+    // Route::get('/finish/{slider_id?}/{uuid?}', 'CampaignController@process')->name('donation.finish');
 
     Route::get('/unfinish', function(){
         return view('client.pending');
     })->name('donation.unfinish');
+
+    Route::get('/unfinish/{slider_id?}/{uuid?}', function($slider_id, $uuid){
+        $campaign = Campaign::where('uuid', $uuid)->first();
+        return view('client.thank-you', compact('uuid', 'slider_id', 'campaign'));
+    })->name('donation.unfinish');
+
     Route::get('/error', function(){
         return view('client.error');
     })->name('donation.error');
@@ -51,7 +57,9 @@ Route::get('/campaign/{uuid}', function($uuid){
     return view('client.campaign-page', compact('uuid'));
 })->name('campaign.page');
 
-Route::post('/generate/gif', 'CampaignController@process')->name('generate.gif');
+Route::get('/generate/{slide_id}/{uuid}', 'CampaignController@process')->name('generate.gif');
+
+// Route::post('/generate/gif', 'CampaignController@process')->name('generate.gif');
 Route::post('/notification/handler', 'HistoryDonationController@notificationHandler')->name('notification.handler');
 
 // Route Frontend

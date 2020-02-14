@@ -29,9 +29,14 @@ $url = urlencode('Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, ka
             <h1 class="uk-text-center uk-padding title-modal uk-padding-remove-bottom">Terima Kasih!</h1>
             <h2 class="uk-text-center uk-visible@s" style="font-size: 1.5rem;"> Donasi Anda telah turut berpartisipasi dalam kegiatan membantu orang lain memiliki kualitas hidup yang lebih layak.</h2>
             <h4 class="uk-text-center uk-padding-bottom uk-hidden@s" style="font-size: 1rem;">Donasi Anda telah turut berpartisipasi dalam kegiatan membantu orang lain memiliki kualitas hidup yang lebih layak.</h4>
-            <img data-src="{{ Voyager::image( $uuid.'/card.gif' ) }}" style="display:block;margin-left:auto;margin-right:auto;" class="lazy">
             <br>
-            <div class="uk-text-center share-gif-social">
+            <p id="loading" class="uk-text-center" style="color:#333;display:block;">
+                Generating Your Gif Card..please wait a moment. <br>
+                <img src="{{ asset('img/loading-bar.gif') }}" alt="">
+            </p>
+            <img id="target-img" data-src="{{ Voyager::image( $uuid.'/card.gif' ) }}" style="display:none;margin-left:auto;margin-right:auto;" class="lazy">
+            <br>
+            <div class="uk-text-center share-gif-social" style="display:none;">
                 <a href="https://wa.me/?text={{ $url }}" target="_blank">
                     <img src="{{ asset('img/wa-share-desktop.png') }}" alt="">
                 </a>
@@ -49,10 +54,10 @@ $url = urlencode('Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, ka
                     <img src="{{ asset('img/mail-share-desktop.png') }}" alt="">
                 </a>
             </div>
-            <p class="uk-text-center">
+            <p class="uk-text-center download" style="display:none;">
                 <a class="uk-button uk-modal-close closeBtn uk-text-capitalize" style="font-size: 1rem;color:#fff;background:#0099bc;width:250px;" href="{{ Voyager::image( $uuid.'/card.gif' ) }}" download>Download GIF</a>
             </p>
-            <p class="uk-text-center">
+            <p class="uk-text-center about-us" style="display:none;">
                 <a class="uk-button uk-modal-close closeBtn uk-text-capitalize" style="font-size: 1rem;color:#0099bc;border: solid 1px #0099bc;width:250px;" href="https://habitatindonesia.org/dukung-habitat/" target="_blank">Tentang Campaign</a>
             </p>
             <div class="uk-overlay uk-visible@m"></div>
@@ -64,3 +69,28 @@ $url = urlencode('Seseorang telah melakukan donasi atas nama Kamu! Untuk itu, ka
 @include('client.components.footer', ['desktop' => 'block', 'mobile' => 'block'])
 
 @endsection
+
+@section('pagespecificscripts')
+
+<script>
+    $( window ).on("load",function() {
+        var uuid = "<?php echo $uuid; ?>";
+        var slider_id = "<?php echo $slider_id; ?>";
+        var base_url = window.location.origin;
+        var url = base_url + '/generate/' + slider_id + '/' + uuid;
+        
+
+        $.get(url, function(data, status){
+            if(status == "success"){
+                $("#loading").css("display", "none");
+                $(".share-gif-social").css("display", "block");
+                $(".download").css("display", "block");
+                $(".about-us").css("display", "block");
+                $("#target-img").css("display", "block");
+            }
+        });
+    });
+    
+</script>
+
+@stop
